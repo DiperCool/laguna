@@ -1,0 +1,15 @@
+.header{
+    background-color: #333333;
+    padding: 10px;
+    color: white;
+    height: 110px;
+}
+.header_fixed {
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+}
+
+.svg{
+    margin: 0 2px;
+}

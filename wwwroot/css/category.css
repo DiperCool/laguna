@@ -1,0 +1,8 @@
+.redButton{
+    border-radius: 50px;
+    padding: 7px;
+    background-color: red;
+    display: inline-block;
+    white-space: nowrap;
+    margin: 3px;
+}

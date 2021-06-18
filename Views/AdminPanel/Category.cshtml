@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+               
+    </head>
+    <body>
+       <div>
+           <h1>Добавление</h1>
+           <input type="text" id="add-name" placeholder="Введите название категории">
+           <button id="add-button">Добавить</button>
+       </div>
+        <br>
+       <div>
+           <h1>Изменение</h1>
+           <select id="change-select" class="select-category">
+               <option value="0">--Выберите--</option>
+                @foreach (var item in ViewBag.Categories)
+                {
+                    <option value="@item.Id" >@item.Name</option>
+                }
+           </select>
+           <input id="change-name" type="text" placeholder="Введите новое название">
+           <button id="change-button">Изменить</button>
+       </div>
+       <br>
+       <div>
+            <h1>Удалние</h1>
+            <select id="del-select" class="select-category">
+               <option value="0">--Выберите--</option>
+                @foreach (var item in ViewBag.Categories)
+                {
+                    <option value="@item.Id" >@item.Name</option>
+                }
+            </select>
+            <button id="del-button">Удалить</button>
+       </div>
+    <script src="~/js/CategoryAdminPanel/CategoryCreate.js"asp-append-version="true" ></script>
+    <script src="~/js/CategoryAdminPanel/CategoryChangeName.js"asp-append-version="true" ></script>
+    <script src="~/js/CategoryAdminPanel/CetegoryDelete.js"asp-append-version="true"></script>
+    </body>
+</html>

@@ -1,0 +1,6 @@
+@model Models.DeleteProductModel
+
+<p>Вы действительно хотите удалить?</p>
+<form method="POST" action="/AdminPanelProduct/DeleteProduct?id=@Model.Id">
+    <input type="submit" text="Удалить">
+</form>

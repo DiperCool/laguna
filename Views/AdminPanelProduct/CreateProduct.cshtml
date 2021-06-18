@@ -1,0 +1,39 @@
+@model Models.CreateProductModel
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="~/css/product.css"/>        
+    </head>
+    <body>
+        <div class="validation" asp-validation-summary="ModelOnly"></div>
+        <form method="post"  enctype="multipart/form-data" class="form-group" style="width: 50%;">
+            <input type="text" class="form-control" name="Name" placeholder="Введите название">
+            <span asp-validation-for="Name"></span>
+            <br>
+            <input type="number" class="form-control" name="Cost" placeholder="Введите цену" step="0.01>
+            <span asp-validation-for="Cost"></span>
+            <br>
+            <input type="text" class="form-control" name="Description" placeholder="Введите описание">
+            <span asp-validation-for="Description"></span>
+            <br>
+            <input type="number" class="form-control" name="Excerpt" placeholder="Введите вес" step="0.01>
+            <span asp-validation-for="Excerpt"></span>
+            <br>
+            <input type="file" name="File">
+            <input type="text" name="UrlPhoto" placeholder="Введите url">
+            <br>
+            <br>
+            <select name="IdCategory" id="select" class="form-control select-category">
+                <option value="0">--Выберите--</option>
+                @foreach (var item in ViewBag.Categories)
+                {
+                    <option value="@item.Id" >@item.Name</option>
+                }
+            </select>
+            <br>
+            <input type="submit">
+        </form>
+    </body>
+</html>
+
+

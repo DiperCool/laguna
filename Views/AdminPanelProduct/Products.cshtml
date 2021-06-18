@@ -1,0 +1,50 @@
+@model Models.ProductFilterResult
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="~/css/product.css"/>        
+    </head>
+    <body>
+        <a href="/adminpanelproduct/createproduct">Создать</a>
+        <form method="GET">
+            <input type="text" name="Name" value="@Model.Filter.Name">
+            <select name="IdCategory" autocomplete="off">
+                <option value="0">--Выберите--</option>
+                @foreach (var item in ViewBag.Categories)
+                {
+                    <option value="@item.Id" selected="@(item.Id==Model.Filter.idCategory)" >@item.Name</option>
+                }
+            </select>
+            <input type="submit">
+        </form>
+
+        <div class="table-responsive">
+            <table class="table-dark table">
+                <tr>
+                    <th>ID</th>
+                    <th>Название</th>
+                    <th>Категория</th>
+                    <th>Цена</th>
+                    <th>Описание</th>
+                    <th>Вес</th>
+                    <th>Изменить</th>
+                    <th>Удалить</th>
+                </tr>
+                @foreach (var item in Model.Products)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Name</td>
+                        <td>@item.Category.Name</td>
+                        <td>@item.Cost</td>
+                        <td>@item.Description</td>
+                        <td>@item.Excerpt</td>
+                        <td><a href="/adminpanelproduct/UpdateProduct?id=@item.Id">Изменить</a></td>
+                        <td><a href="/adminpanelproduct/deleteProduct?id=@item.Id">Удалить</a></td>
+                    </tr>
+                }
+            </table>
+            
+        </div>
+    </body>
+</html>
