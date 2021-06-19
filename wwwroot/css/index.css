@@ -1,7 +1,6 @@
 .header{
     background-color: #333333;
     padding: 10px;
-    color: white;
     height: 110px;
 }
 .header_fixed {
@@ -12,4 +11,17 @@
 
 .svg{
     margin: 0 2px;
+}
+
+.button-buy{
+    background: transparent;
+    border: none !important;
+    font-size:0;
+    color: white;
+}
+
+nav{
+    overflow:auto;
+    white-space: nowrap;
+    margin-top: 5px;
 }

@@ -10,6 +10,8 @@ namespace Interfaces
         Task ChangeName(string name, int id);
         Task Delete(int id);
         Task<List<Category>> GetCategories();
+        Task<Category> GetFirstCategory();
+        Task<Category> GetCategoryByName(string name);
 
     }
 }

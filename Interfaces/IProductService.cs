@@ -13,5 +13,6 @@ namespace Interfaces
         Task<List<Product>> GetProductsByCategory(int idCategory);
         Task<List<Product>> GetProductFilter(string name, int? idCategory);
         Task<Product> GetProductById(int id);
+        Task<double?> GetCostsProductById(int id);
     }
 }

@@ -46,6 +46,17 @@ namespace Services
             var res = await _context.Categories.AsNoTracking().OrderBy(x=>x.Id).ToListAsync();
             return res;
         }
+
+        public async Task<Category> GetCategoryByName(string name)
+        {
+            return await _context.Categories.AsNoTracking().FirstOrDefaultAsync(x=>x.Name==name);
+        }
+
+        public async Task<Category> GetFirstCategory()
+        {
+            return await _context.Categories.AsNoTracking().OrderBy(x=>x.Id).FirstAsync();
+        }
+
         private async Task<Category> GetCatagory(int id)
         {
             return await _context.Categories.FirstOrDefaultAsync(x => x.Id == id);

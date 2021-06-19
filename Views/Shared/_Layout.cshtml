@@ -8,9 +8,12 @@
     <link rel="stylesheet" href="~/css/site.css"  />
     <link rel="stylesheet" href="~/css/index.css"/>
     <link rel="stylesheet" href="~/css/category.css"/>
+    <script src="~/js/localStorage.js" asp-append-version="true"></script>
+     <script src="~/js/Index/CountBasket.js" asp-append-version="true"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
+
     <div  class="header header_fixed ">
         <div class="row">
             <div class="col-10">Laguna</div>
@@ -25,7 +28,7 @@
                     </svg>
                 </div>
                 <a class="redButton" href="~/basket">
-                    <span>1000000 грн</span>
+                    <span id="count"></span>
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg" width="20" height="20" viewBox="0 0 2133 2133">
                         <image id="Слой_3" data-name="Слой 3" x="597" y="1253" width="943" height="501" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAICAYAAADJEc7MAAAAl0lEQVQYlY2RsQrCQBBE30m08CcU0UK/wc5CP9mfUESRw0DAQvIDQUEkJAzs4XmmyDS7M8xrdl1VljfgAWz4ygFH4Ams+dUemAlsLB4Bn2h/2+4ibADUYTlYOOVfrySZ2LwIPJuZd4CpQuck0JtZ9ABDxwvMzax6gEubucDCzK6jOE781maRAXrHHbhGBV1XXu+IpWwI+BbLOiB90/KcqgAAAABJRU5ErkJggg=="/>
                         <image id="Слой_2" data-name="Слой 2" y="129" width="2133" height="1875" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAcCAYAAAAAwr0iAAACT0lEQVRIicWW30tUQRTHP+ZKSEFCkhZJJEKESQ+9GRX2g1qsDcMgAv+FeooU6bWgvyMofDEi0SK3MHqrSIoCX4ISzSBacYtajeQs34HreHfdq7P1hcvMnTv3fL9z5pwzU7MwM0MCDAEXgV3ArPfbDmAOGAYuVGpyUwLyayLPAT9jvtvYN6AH6A8tIA3cVv8EMB8zJ69vhlvA2VAC9gIP1O8DXpeZOwlcVt/+aQshwAyl5IE7Fcy/C9wEavRvWY61BJixA8AocL0CcodB4CGwH7i3XgEDwCXgE9CbgNzBAvaj2hulJpVKw3ORfe8A3q1DAPLAe/UtO+77E+I80BYhP7IBcsMHoFN9qw/7/Akp5Xda+Z0XqeGrXH8FqAP+JiS3IFwCplWgmoBHwASwFdgGPLYtyOnlf2A+JXJb+SGgAGypshCrmLXAS+NOafA3MPWPPWCcxRiw1W8HLB1+Ac3AZuBPYMJaeXhW9u3wypuALJABdoq0oOxIclBVCgvkFi3c8NRIzitis1LZrfe6wI/ZPC3yCb1noqscUXtM7VLgJ2rbca1w87janiq43sHZfuIG/FL8GdgNtKqOh0SLzpUvirdVHiBSgruqsPrjHkesgDG16SoIOONxFOFvQQPwHVhUvS4EIrfsWgDqgUbdHYvwPZBTgFjaHA5EjmwZ+bMoeZwAdJMxnAoo4KRnu6yArNpMQAHO1rj/IU7AW6VLu9Jxo9gDHNRZ88a35WqyD7u9XAVeAT/KzFsLdrbY3jubq1DqTmjXqBcBVh/FUeD5ihFgGbGTj4TA8HhnAAAAAElFTkSuQmCC"/>
@@ -37,15 +40,20 @@
         <nav id="nav">
             @foreach (var item in ViewBag.Categories)
             {
-                <a class="redButton">@item.Name</a>
+                <a class="redButton" href="~/product/@item.Name">@item.Name</a>
             }
         </nav>
     </div>
+
     <div>
         <main role="main" class="pb-3 content">
             @RenderBody()
         </main>
     </div>
+
+    <script>
+        countBasket();
+    </script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     @await RenderSectionAsync("Scripts", required: false)

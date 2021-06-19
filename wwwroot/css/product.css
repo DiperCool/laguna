@@ -47,7 +47,7 @@
 .info-current-product{
     text-align: center;
 }
-.button-current-product{
+#button-current-product{
     width: 100%;
     background-color: red;
     color: white;

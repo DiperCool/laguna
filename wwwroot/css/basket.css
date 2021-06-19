@@ -1,0 +1,76 @@
+#content{
+    width:65%;
+    margin: 0 auto;
+    background-color: #242424;
+    font-size: 20px;
+    padding: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    #content {
+        width:100%;
+        margin: 0;
+        background-color: #242424;
+    }
+}
+
+.item{
+    white-space: nowrap;
+}
+
+.inline-group {
+    max-width: 9rem;
+    padding: .5rem;
+  }
+  
+.inline-group .form-control {
+text-align: right;
+}
+
+.form-control[type="number"]::-webkit-inner-spin-button,
+.form-control[type="number"]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+
+
+#content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+
+
+.confirm-button{
+    width: 80%;
+    margin: 0 auto;
+    background-color: red;
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    border: none;
+    height: 50px;
+}
+button:active, button:focus {
+    outline: none;
+}
+
+#products{
+
+    scroll-margin-left: 10px;
+    padding: 0 20px;
+}
+
+.back{
+    display: none;
+}
+
+.back-view{
+    display: block;
+}
+
+.basket-total-hide{
+    display: none;
+}

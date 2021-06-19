@@ -50,6 +50,11 @@ namespace Services
             await _context.SaveChangesAsync();
         }
 
+        public async Task<double?> GetCostsProductById(int id)
+        {
+            return (await _context.Products.AsNoTracking().FirstOrDefaultAsync(x=>x.Id==id))?.Cost;
+        }
+
         public async Task<Product> GetProductById(int id)
         {
             return await _context.Products.AsNoTracking().FirstOrDefaultAsync(x=>x.Id==id);
