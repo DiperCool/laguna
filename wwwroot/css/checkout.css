@@ -1,0 +1,58 @@
+#content{
+    position: relative;
+    width:65%;
+    margin: 0 auto;
+    background-color: #242424;
+    font-size: 20px;
+    padding: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    #content {
+        width:100%;
+        margin: 0;
+        background-color: #242424;
+    }
+}
+
+button{
+    text-decoration: none;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+}
+
+.button-type-delivery{
+    background: #c41e3a;
+}
+.button-actived{
+    background: red;
+}
+
+
+.linkInstructions{
+    text-decoration:underline
+}
+
+.linkInstructions:hover{
+    text-decoration:underline;
+    color: silver;
+    cursor: pointer
+}
+
+.hide{
+    display: none;
+}
+
+.content-preview{
+    color: #999999
+}
+.change-button{
+    text-decoration:underline
+}
+
+.change-button:hover{
+    text-decoration:underline;
+    color: silver;
+    cursor: pointer;
+}

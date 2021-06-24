@@ -7,5 +7,6 @@ namespace Models
     {
         public List<Product> Products { get; set; }
         public ViewProductModel Filter { get; set; }
+        public PageViewModel PageViewModel { get; set; }
     }
 }

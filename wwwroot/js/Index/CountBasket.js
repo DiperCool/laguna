@@ -1,5 +1,3 @@
-
-console.log("oleg")
 let items = getBasket();
 let countBasket=()=>{
     let span = document.querySelector("#count");

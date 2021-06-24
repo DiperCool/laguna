@@ -6,7 +6,7 @@
     <body>
        <div>
            <h1>Добавление</h1>
-           <input type="text" id="add-name" placeholder="Введите название категории">
+           <input type="text" id="add-name" placeholder="Введите название">
            <button id="add-button">Добавить</button>
        </div>
         <br>
@@ -24,7 +24,7 @@
        </div>
        <br>
        <div>
-            <h1>Удалние</h1>
+            <h1>Удаление</h1>
             <select id="del-select" class="select-category">
                <option value="0">--Выберите--</option>
                 @foreach (var item in ViewBag.Categories)

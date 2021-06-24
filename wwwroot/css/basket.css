@@ -53,9 +53,6 @@ margin: 0;
     border: none;
     height: 50px;
 }
-button:active, button:focus {
-    outline: none;
-}
 
 #products{
 
@@ -73,4 +70,15 @@ button:active, button:focus {
 
 .basket-total-hide{
     display: none;
+}
+
+
+.delete{
+    text-decoration:underline
+}
+
+.delete:hover{
+    text-decoration:underline;
+    color: silver;
+    cursor: pointer;
 }

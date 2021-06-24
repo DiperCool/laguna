@@ -7,6 +7,7 @@ using Filters;
 using Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -35,12 +36,26 @@ namespace Laguna
             services.AddControllersWithViews(options=>{
                 options.Filters.Add(new ServiceFilterAttribute(typeof(ViewBagCategoriesFilterAttribute)));
             })
-                .AddRazorRuntimeCompilation();
+            .AddNewtonsoftJson(options =>
+                {
+                options.SerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter());
+                options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
+                })
+            .AddRazorRuntimeCompilation();
             services.AddDistributedMemoryCache();
-            services.AddSession();
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromHours(5);
+            });
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddTransient<IViewRenderService, ViewRenderService>();
+            services.AddTransient<ICheckoutService, CheckoutService>();
             services.AddTransient<ICategoryService, CategoryService>();
             services.AddTransient<IProductService, ProductService>();
+            services.AddTransient<IEmailService, EmailService>();
+            services.AddTransient<IOrderService, OrderService>();
             services.AddTransient<ViewBagCategoriesFilterAttribute>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

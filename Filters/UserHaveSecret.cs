@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Configuration;
+using Tools;
 
 namespace Filters
 {
@@ -27,16 +28,15 @@ namespace Filters
 
             public void OnActionExecuted(ActionExecutedContext context)
             {
-                if(!context.HttpContext.Session.Keys.Contains("SecretCodeAdminPanel"))
+                CheckUsersSecret check = new CheckUsersSecret();
+                if(!check.Check(context.HttpContext,_config.GetValue<string>("AdminPanel:SecretCode") ))
                 {
-                    context.Result= new BadRequestResult();
+                    
+
+                    context.Result= new RedirectToActionResult("login", "AdminPanel", new Object{});
                     return;
                 }
-                if(context.HttpContext.Session.GetString("SecretCodeAdminPanel")!=_config.GetValue<string>("AdminPanel:SecretCode"))
-                {
-                    context.Result= new BadRequestResult();
-                    return;
-                }   
+            
             }
 
             public void OnActionExecuting(ActionExecutingContext context)

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Laguna</title>
+    <title>Laguna</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css"  />
     <link rel="stylesheet" href="~/css/index.css"/>
@@ -38,9 +38,18 @@
             </div>
         </div>
         <nav id="nav">
-            @foreach (var item in ViewBag.Categories)
-            {
-                <a class="redButton" href="~/product/@item.Name">@item.Name</a>
+            @if(!ViewBag.IsAdmin){
+                foreach (var item in ViewBag.Categories)
+                {
+                    <a class="redButton" href="~/product/@item.Name">@item.Name</a>
+                }
+            }
+            else{
+                <a class="redButton" href="~/AdminPanelProduct/Products">Список продуктов</a>
+                <a class="redButton" href="~/AdminPanelProduct/createproduct">Создать продукт</a>
+                <a class="redButton" href="~/AdminPanel/category">Управление категориями</a>
+                <a class="redButton" href="~/AdminPanelOrders/orders">Заказы</a>
+                
             }
         </nav>
     </div>

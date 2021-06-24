@@ -5,9 +5,9 @@ using Microsoft.AspNetCore.Http;
 
 namespace Tools
 {
-    public static class SaveFile
+    public class SaveFile
     {
-        public static async Task<string> Save(IFormFile file, string WebRootPath)
+        public async Task<string> Save(IFormFile file, string WebRootPath)
         {
             string ext = Path.GetExtension(file.FileName);
             string shortPath = "/Photos/" + Guid.NewGuid() + ext;

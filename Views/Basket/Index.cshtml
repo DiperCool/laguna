@@ -12,27 +12,37 @@
             </div>
             <div class="basket-total basket-total-hide">
                 <div style="font-size:18px">
-                    <h1>Підсумки замовлення</h1>
+                    <h1>Итог заказа</h1>
                     <br>
-                    <p>Проміжний підсумок <span class="to-pay"></span> грн</p>
+                    <div class="d-flex justify-content-between">
+                        <p style="font-weight: bold;">Промежуточный итог</p>
+                        <p><span class="to-pay"></span> грн</p>
+                    </div>
                     
                     <p style="font-weight: bold;">Доставка</p>
-                    <p>
-                        Безкоштовна доставка
-                        <br>
-                        Варіанти доставки будуть оновлені під час оформлення замовлення
-                    </p>
-                    
+                    <hr color="white">
+                    <p>Бесплатная доставка</p>
+                    <hr color="white">
+                    <p>Варианты доставки будут обновлены во время оформления заказа</p>
+                    <br>
 
-                    <p style="font-weight: bold;">Загалом <span class="to-pay"></span> грн</p>
+                    <div class="d-flex justify-content-between">
+                        <p style="font-weight: bold;">В целом</p>
+                        <p><span class="to-pay"></span> грн</p>
+                    </div>
                 </div>
                 <div style="text-align: center">
-                    <button class="confirm-button">Перейти до оформлення</button>
+                    <a href="~/checkout">
+                        <button class="confirm-button">Перейти к оформлению</button>
+                    </a>
                 </div>
             </div>
 
-            <div class="back">
-                Пуста
+            <div class="back" style="text-align: center">
+                Ваша корзина пуста
+                <a href="~/">
+                    <button class="confirm-button">Продолжить покупки</button>
+                </a>
             </div>
             
         </div>

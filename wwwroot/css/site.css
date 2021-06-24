@@ -27,3 +27,7 @@ a:hover{
 .content{
   margin-top: 110px;
 }
+
+button:active, button:focus {
+  outline: none;
+}

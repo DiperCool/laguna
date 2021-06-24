@@ -43,7 +43,7 @@ namespace Controllers
         public IActionResult Login([FromForm] Models.AdminPanelLoginModel model)
         {
             if(model.Login!=_config.GetValue<string>("AdminPanel:Login") && model.Password!=_config.GetValue<string>("AdminPanel:Password")) 
-                return Redirect("~/AdminPanelLogin/Login");
+                return Redirect("~/");
             HttpContext.Session.SetString("SecretCodeAdminPanel", _config.GetValue<string>("AdminPanel:SecretCode"));
             return Redirect("~/AdminPanelProduct/Products");
         }

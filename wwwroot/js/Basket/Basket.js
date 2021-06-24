@@ -56,7 +56,7 @@ let drawItem = (item)=>{
     oneRow.classList.add("col-6");
     let name= document.createElement("div");
     name.innerHTML=item.prod.name;
-    let del = document.createElement("div");
+    let del = document.createElement("span");
     del.classList.add("delete")
     del.setAttribute("data-id", item.prod.id)
     del.textContent="Удалить";
@@ -124,6 +124,7 @@ let draw= ()=>{
     let deletes = document.querySelectorAll(".delete");
     deletes.forEach(item=>{
         item.addEventListener("click", (e)=>{
+            if (!window.confirm("Удалить?")) return;
             let id= parseInt( e.currentTarget.getAttribute("data-id"));
             deleteProduct(id);
             draw();

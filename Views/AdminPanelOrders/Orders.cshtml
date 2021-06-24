@@ -1,0 +1,31 @@
+@model Models.ViewOrdersModel
+<!DOCTYPE html>
+<html>
+    <head>
+               
+    </head>
+    <body>
+       <div class="table-responsive">
+            <table class="table-dark table">
+                <tr>
+                    <th>ID</th>
+                    <th>Номер</th>
+                    <th>Номер телефона</th>
+                    <th>Тип доставки</th>
+                </tr>
+                @foreach (var item in Model.Orders)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Guid</td>
+                        <td>@item.Phone</td>
+                        <td>@(item.Delivery==Enums.DeliveryType.Delivery? "Доставка" : "Самовывоз")</td>
+                        
+                    </tr>
+                }
+            </table>
+            
+        </div>
+           
+    </body>
+</html>

@@ -1,0 +1,44 @@
+@model Models.CheckoutInfoModel
+<div style="font-size: 20px; color: black ;">
+    <div>
+        Номер телефона: @Model.Model.Phone
+        @if(!string.IsNullOrEmpty(Model.Model.Name))
+        {
+            <div>
+                Имя: @Model.Model.Name
+            </div>
+        }
+        @if(@Model.Model.Delivery==Enums.DeliveryType.Pickup){
+            <div>
+                Самовывоз
+            </div>
+        }else{
+            <div>
+                Доставка
+                @if(!string.IsNullOrEmpty(Model.Model.DeliveryPlace))
+                {
+                    <div>
+                        Место куда доставлять: @Model.Model.DeliveryPlace
+                    </div>
+                }
+                @if(!string.IsNullOrEmpty(Model.Model.Instructions))
+                {
+                    <div>
+                        Инструкции: @Model.Model.Instructions
+                    </div>
+                }
+            </div>
+        }
+    </div>
+    <ul>
+        @foreach (var item in Model.Products)
+        {
+        <li>
+            @($"{item.Amount.ToString()}X") @item.Product.Name @(item.Amount * item.Product.Cost) грн.
+        </li>
+        }
+    </ul>
+    <div>
+        Заказ на сумму: @Model.Products.Sum(x=>x.Product.Cost * x.Amount) грн.
+    </div>
+</div>

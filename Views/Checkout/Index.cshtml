@@ -1,0 +1,167 @@
+@model Models.ProductFilterResult
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="~/css/checkout.css"/>  
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+      
+    </head>
+    <body>
+        
+        
+        <div id="content" class="container px-4">
+
+
+            
+
+            <div class="address-information level">
+                <div class="head">
+                    <div class="preview" id="address-information-preview">
+                        <div class="d-flex justify-content-between">
+                            <h2>
+                                <span class="fa fa-check" hidden aria-hidden="true"></span>
+                                1. Cпособ доставки
+                            </h2>
+                            <span id="address-information-preview-change" class="change-button hide" data-id="0">Изменить</span>
+
+                        </div>
+                        <div class="content-preview">
+                        </div>
+                    </div>
+                </div>
+                <div class="body">
+                    <div id="buttons" class="row">
+                        <button class="button-type-delivery col-6" id="delivery-button" >Доставка</button>
+                        <button class="button-type-delivery col-6" id="pickup-button">Самовывоз</button>
+                    </div>
+                    <br>
+                    <div class="delivery-information hide"> 
+                        <h4>Адрес доставки</h4>
+                        <input type="text" id="address" placeholder="Добавить название улицы и номер дома" class="form-control"> 
+                        <br>
+                        <span class="linkInstructions">Добавить инструкции по доставке</span>
+                        <div id="instruction-delivery" class="hide">
+                            <textarea id="instructions" class="form-control" aria-label="With textarea" placeholder="Добавьте инструкции по доставке (не обязательно)"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="pickup-information hide">
+                        <p>
+                            Забрать по адресу:
+                            <br>   
+                            улица Вокзальная, 67, Затока, Одесская область, Украина, 67773
+                        </p>
+                    </div>
+                    <br>
+
+                    <div style="text-align: center;">
+                        <button class="button-actived button-continue" style="width: 100%;"  >Далее</button>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+        
+
+            <div class="contacts level">
+                <div class="preview " id="contacts-preview">
+                    <div class="d-flex justify-content-between">
+                        
+                        <h2><span class="fa fa-check" hidden aria-hidden="true"></span> 2. Контактные данные</h2>
+                        <span id="contacts-preview-change" class="change-button hide" data-id="1">Изменить</span>
+                    </div>
+                    <div class="content-preview">
+                    </div>
+                </div>
+                <div class="body hide">
+                    <div>
+                        <input type="text" class="form-control" placeholder="Введите имя (не обязательно)" id="name">
+                        <br>
+                        <input type="text" class="form-control" placeholder="Введите номер телефона" id="phone">
+                    </div>
+                    <br>
+                    <div style="text-align: center;">
+                        <button class="button-actived button-continue" style="width: 100%;"  >Далее</button>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+            
+
+            <div class="payments level">
+                <div class="head">
+                    <div class="preview" id="payments-preview">
+                        <div class="d-flex justify-content-between">
+                            
+                            <h2><span class="fa fa-check" hidden aria-hidden="true"></span> 3. Оплата</h2>
+                            <span id="payments-preview-change" class="change-button hide" data-id="2">Изменить</span>
+                        </div>
+                        <div class="content-preview">
+                        </div>
+                    </div>
+                </div>
+                <div class="body hide">
+                    <br>
+                    Оплата наличными курьеру.
+                    <br>
+                    <div style="text-align: center;">
+                        <button class="button-actived button-continue" style="width: 100%;"  >Далее</button>
+                    </div>
+                </div>
+            </div>
+            <br>
+             
+
+            <div class="check level">
+                <div class="head">
+                    <div class="preview" id="check-preview">
+                        <div class="d-flex justify-content-between">
+                            
+                            <h2><span class="fa fa-check" hidden aria-hidden="true"></span>4.Обзор и размещения заказа</h2>
+                            <span id="check-preview-change" class="change-button hide" data-id="3">Изменить</span>
+                        </div>
+                        <div class="content-preview">
+                        </div>
+                    </div>
+                </div>
+                <div class="body hide">
+                    <div>
+                        Проверьте информацию и разместить заказ.
+                    </div>
+                </div>
+                
+            </div>
+            <div id="products">
+                        
+            </div>
+            <br>
+            <div id="sum" class="d-flex justify-content-between">
+                <div>
+                    Заказ на сумму
+                </div>
+                <div id="cost">
+
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <button class="button-actived" style="width: 100%;" id="confirm-order" >Отправить заказ</button>
+            </div>
+        </div>
+
+
+
+    <script src="~/js/Checkout/LoadProduct.js" asp-append-version="true"></script>
+    <script src="~/js/Checkout/SetHeadContent.js" asp-append-version="true"></script>
+    <script src="~/js/Checkout/SetValues.js" asp-append-version="true"></script>
+    <script src="~/js/Checkout/Validation.js" asp-append-version="true"></script>
+
+    <script src="~/js/Checkout/LevelsState.js" asp-append-version="true"></script>
+    <script src="~/js/Checkout/ButtonContinueClick.js" asp-append-version="true"></script>
+    <script src="~/js/Checkout/ButtonChangeClick.js" asp-append-version="true"></script>
+
+    <script src="~/js/Checkout/ToggleButtons.js" asp-append-version="true"></script>
+    <script src="~/js/Checkout/ToggleInsctructions.js" asp-append-version="true"></script>
+    <script src="~/js/Checkout/ClickConfirmButton.js" asp-append-version="true"></script>
+    </body>
+</html>
