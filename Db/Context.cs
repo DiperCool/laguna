@@ -9,6 +9,7 @@ namespace Db
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Order> Orders { get; set; }
+        public DbSet<Promocode> Promocodes { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             

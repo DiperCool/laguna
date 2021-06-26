@@ -3,20 +3,33 @@
 <html>
     <head>
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-        <link rel="stylesheet" href="~/css/basket.css"/>        
+        <link rel="stylesheet" href="~/css/basket.css" asp-append-version="true"/>        
     </head>
     <body>
         <div id="content">
             <div id="products">
 
             </div>
-            <div class="basket-total basket-total-hide">
+            <div class="row">
+                <div class="col-9">
+                    <input typle="text"placeholder="Промокод" class="form-control" id="promocode">
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-primary" id="usePromocode">Использовать</button>
+                </div>
+            </div>
+
+            <div class="basket-total basket-total-hide" style="margin-top: 25px;">
                 <div style="font-size:18px">
                     <h1>Итог заказа</h1>
                     <br>
                     <div class="d-flex justify-content-between">
                         <p style="font-weight: bold;">Промежуточный итог</p>
-                        <p><span class="to-pay"></span> грн</p>
+                        <div class="d-flex justify-content-start">
+                            <p class="to-pay"><span class="to-pay-span"></span> грн  </p>
+                            <p class="to-pay-promo hide"><span class="to-pay-promo-span"></span> грн</p>
+                        </div>
+
                     </div>
                     
                     <p style="font-weight: bold;">Доставка</p>
@@ -27,8 +40,11 @@
                     <br>
 
                     <div class="d-flex justify-content-between">
-                        <p style="font-weight: bold;">В целом</p>
-                        <p><span class="to-pay"></span> грн</p>
+                        <p style="font-weight: bold;">В целом:</p>
+                        <div class="d-flex justify-content-start">
+                            <p class="to-pay"><span class="to-pay-span"></span> грн  </p>
+                            <p class="to-pay-promo hide"><span class="to-pay-promo-span"></span> грн</p>
+                        </div>
                     </div>
                 </div>
                 <div style="text-align: center">
@@ -40,6 +56,7 @@
 
             <div class="back" style="text-align: center">
                 Ваша корзина пуста
+                <br>
                 <a href="~/">
                     <button class="confirm-button">Продолжить покупки</button>
                 </a>
@@ -53,7 +70,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
         
         <script src="~/js/Basket/Basket.js" asp-append-version="true"></script>
-
+        <script src="~/js/Basket/BasketUsePromocode.js"asp-append-version="true"></script>
 
     </body>
 </html>

@@ -13,5 +13,7 @@ namespace Entities
         public string Instructions { get; set; }
         public DeliveryType Delivery { get; set; }
         public List<ProductAmount> Products { get; set; }
+        public int? PromocodeId { get; set; }
+        public Promocode Promocode { get; set; }
     }
 }

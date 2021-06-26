@@ -8,7 +8,7 @@ if(localStorage.getItem("checkout")===null){
 
     let obj= {
         addressInfrormation: {
-            typeDelivery: "Доставка",
+            typeDelivery: "Delivery",
             deliveryAddress : "",
             instructions: ""
         },
@@ -21,6 +21,16 @@ if(localStorage.getItem("checkout")===null){
     localStorage.setItem("checkout", JSON.stringify(obj));
 
 }
+
+if(localStorage.getItem("promocode")===null){
+    let obj = {
+        code: "",
+        discount: 0,
+        isAvailable: false
+    }
+    localStorage.setItem("promocode", JSON.stringify(obj));
+}
+
 
 const getBasket = ()=>{
     return JSON.parse(localStorage.getItem("basket"));
@@ -35,4 +45,12 @@ const getCheckout = ()=>{
 }
 const setCheckout = obj =>{
     localStorage.setItem("checkout", JSON.stringify(obj));
+}
+
+const getPromocode=()=>{
+    return JSON.parse(localStorage.getItem("promocode"));
+}
+
+const setPromocode = obj =>{
+    localStorage.setItem("promocode", JSON.stringify(obj));
 }

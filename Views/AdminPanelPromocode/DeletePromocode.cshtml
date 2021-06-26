@@ -1,0 +1,8 @@
+@model Models.DeletePromocodeModel
+<div>
+    @Model.id
+    Вы действительно хотите удалить промокод?
+    <form method="POST" action="/AdminPanelPromocode/DeletePromocode?id=@Model.id">
+        <input type="submit">
+    </form>
+</div>

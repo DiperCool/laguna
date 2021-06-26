@@ -21,6 +21,7 @@
             <br>
             <input type="file" name="File">
             <input value="@Model.UrlPhoto" type="text" name="UrlPhoto" placeholder="Введите url">
+            @Html.Hidden("Id", Model.Id)
             <br>
             <br>
             <select name="IdCategory" class="form-control"autocomplete="off">

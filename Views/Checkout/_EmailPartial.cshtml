@@ -39,6 +39,17 @@
         }
     </ul>
     <div>
-        Заказ на сумму: @Model.Products.Sum(x=>x.Product.Cost * x.Amount) грн.
+        @{double totalSum = Model.Products.Sum(x=>x.Product.Cost * x.Amount);}
+        Заказ на сумму: @totalSum грн.
+        <br>
+        @if(Model.Promocode!=null)
+        {
+            <div>
+                Был использован промокод: @Model.Promocode.Code
+            </div>
+            <div>
+                Цена со скидкой (@Model.Promocode.Discount%): @(totalSum-(totalSum/100 * Model.Promocode.Discount)) грн.
+            </div>
+        }
     </div>
 </div>

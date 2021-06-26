@@ -20,6 +20,6 @@ products.forEach(item => {
     productsDiv.appendChild(div);
     productsDiv.appendChild(hr);
 
-    let costDiv= document.querySelector("#cost");
-    costDiv.innerHTML=countBasket() + " грн";
+    let costDiv= document.querySelector(".to-pay-span");
+    costDiv.innerHTML=countBasket();
 });

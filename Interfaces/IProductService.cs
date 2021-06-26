@@ -9,6 +9,7 @@ namespace Interfaces
     {
         Task<Product> CreateProduct(CreateProductModel model);
         Task<Product> UpdateProduct(UpdateProductModel model);
+        Task<List<Product>> GetProducts();
         Task DeleteProduct(int id);
         Task<List<Product>> GetProductsByCategory(int idCategory);
         Task<List<Product>> GetProductFilter(string name, int? idCategory);

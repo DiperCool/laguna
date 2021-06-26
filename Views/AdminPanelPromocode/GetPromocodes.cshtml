@@ -1,0 +1,46 @@
+@model List<Entities.Promocode>
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="~/css/promocode.css"/>        
+    </head>
+    <body>
+       <div class="table-responsive">
+            <table class="table-dark table">
+                <tr>
+                    <th>ID</th>
+                    <th>Название</th>
+                    <th>Код</th>
+                    <th>Скидка</th>
+                    <th>Доступен с</th>
+                    <th>Доступен до</th>
+                    <th>Маскимальное использование</th>
+                    <th>Использовано раз</th>
+                    <th>Изменить</th>
+                    <th>Удалить</th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Name</td>
+                        <td>@item.Code</td>
+                        <td>@item.Discount</td>
+                        <td>@item.AvailableFrom.ToString("yyyy-MM-dd")</td>
+                        <td>@item.AvailableTo.ToString("yyyy-MM-dd")</td>
+                        <td>@item.MaxUseTimes</td>
+                        <td>@item.UsedTimes</td>
+                        <td><a href="~/AdminPanelPromocode/UpdatePromocode?id=@item.Id">Изменить</a></td>
+                        <td><a href="~/AdminPanelPromocode/DeletePromocode?id=@item.Id">Удалить</a></td>
+                    </tr>
+                }
+            </table>
+            
+        </div>
+    </body>
+
+
+    
+</html>
+

@@ -4,7 +4,7 @@ using Enums;
 
 namespace Models
 {
-    public class CheckoutEmeilSendModel
+    public class OrderModel
     {
         public string Name { get; set; }
         public string DeliveryPlace { get; set; }
@@ -15,5 +15,6 @@ namespace Models
         public DeliveryType Delivery { get; set; }
         [Required]
         public List<ProductAmountModel> Products { get; set; }
+        public string PromocodesCode { get; set; }
     }
 }

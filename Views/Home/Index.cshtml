@@ -1,11 +1,16 @@
-﻿<!DOCTYPE html>
+﻿@model List<Entities.Product>
+<!DOCTYPE html>
 <html>
     <head>
         <link rel="stylesheet" href="~/css/product.css" asp-append-version="true"/>        
     </head>
     <body>
         <div id="content">
-           @foreach (var item in Model){
+           @foreach (var category in ViewBag.Categories)
+           {
+               if(Model.Where(x=>x.Category.Name==category.Name).Count()==0) continue;
+               <h2>@category.Name</h2>
+               foreach (var item in Model.Where(x=>x.Category.Name==category.Name)){
                 <div class="product" data-id="@item.Id">
                     <img src="@item.UrlPhoto" class="product-img">
                     <div class="row no-gutters">
@@ -24,6 +29,8 @@
                     <div class="description">@item.Description</div>
                 </div>
             }
+            <br>
+           }
         </div>
         <div class="current-product">
             <svg xmlns="http://www.w3.org/2000/svg" class="close-current-product" width="16" height="16" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">

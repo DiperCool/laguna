@@ -27,12 +27,7 @@ namespace Laguna.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            Category category= await _catService.GetFirstCategory();
-            if(category==null)
-            {
-                return View(new List<Product>());
-            }
-            return View(await _prodService.GetProductsByCategory(category.Id));
+            return View(await _prodService.GetProducts());
         }
         [Route("/product/{category}")]
         public async Task<IActionResult> Index(string category)

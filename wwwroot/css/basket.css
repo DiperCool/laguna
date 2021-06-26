@@ -14,6 +14,11 @@
     }
 }
 
+.hide{
+    display: none;
+}
+
+
 .item{
     white-space: nowrap;
 }
@@ -81,4 +86,12 @@ margin: 0;
     text-decoration:underline;
     color: silver;
     cursor: pointer;
+}
+
+.to-pay{
+    margin-right: 5px;
+}
+
+.pay-to-line-through{
+    text-decoration: line-through!important
 }

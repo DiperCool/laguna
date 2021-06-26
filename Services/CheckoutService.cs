@@ -15,7 +15,7 @@ namespace Services
             _productService = productService;
         }
 
-        public async  Task<List<ProductsCheckoutModel>> GetProducts(CheckoutEmeilSendModel model)
+        public async  Task<List<ProductsCheckoutModel>> GetProducts(OrderModel model)
         {
             List<ProductsCheckoutModel> Products = new List<ProductsCheckoutModel>();
             foreach(var item in model.Products)

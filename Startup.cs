@@ -54,6 +54,7 @@ namespace Laguna
             services.AddTransient<IProductService, ProductService>();
             services.AddTransient<IEmailService, EmailService>();
             services.AddTransient<IOrderService, OrderService>();
+            services.AddTransient<IPromocodeService, PromocodeService>();
             services.AddTransient<ViewBagCategoriesFilterAttribute>();
 
         }

@@ -9,8 +9,10 @@
     <link rel="stylesheet" href="~/css/index.css"/>
     <link rel="stylesheet" href="~/css/category.css"/>
     <script src="~/js/localStorage.js" asp-append-version="true"></script>
-     <script src="~/js/Index/CountBasket.js" asp-append-version="true"></script>
+    <script src="~/js/Index/CountBasket.js" asp-append-version="true"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="~/js/promocode.js" asp-append-version="true"></script>
 </head>
 <body>
 
@@ -49,7 +51,8 @@
                 <a class="redButton" href="~/AdminPanelProduct/createproduct">Создать продукт</a>
                 <a class="redButton" href="~/AdminPanel/category">Управление категориями</a>
                 <a class="redButton" href="~/AdminPanelOrders/orders">Заказы</a>
-                
+                <a class="redButton" href="~/AdminPanelPromocode/GetPromocodes">Список промокодов</a>
+                <a class="redButton" href="~/AdminPanelPromocode/CreatePromocode">Создать промокод</a>
             }
         </nav>
     </div>

@@ -7,6 +7,6 @@ namespace Interfaces
 {
     public interface ICheckoutService
     {
-        Task<List<ProductsCheckoutModel>> GetProducts(CheckoutEmeilSendModel model); 
+        Task<List<ProductsCheckoutModel>> GetProducts(OrderModel model); 
     }
 }

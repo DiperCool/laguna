@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="~/css/promocode.css"/>        
+    </head>
+    <body>
+       <form method="POST">
+           <div class="container-fluid">
+               <div class="row">
+                    <div class="col-6">
+                        <label for="Name">Название</label>
+                         <input name="Name" type="text" placeholder="Введите название" class="form-control">
+                    </div>
+                     <div class="col-6">
+                        <label for="Code">Код</label>
+                         <input name="Code"type="text" placeholder="Введите код" class="form-control">
+                    </div>
+               </div>
+               <br>
+               <div class="row">
+                   <div class="col-12">
+                       <label for="Discount">Скидка</label>
+                       <input name="Discount" type="number" class="form-control"placeholder="Введите скидку ( в процентнах )" >
+                   </div>
+               </div>
+               <br>
+               <div class="row">
+                   <div class="col-12">
+                       <label for="MaxUseTimes">Использовать не более, раз</label>
+                       <input name="MaxUseTimes" type="number" class="form-control" placeholder="Введите максимальное число использование промокода">
+                   </div>
+               </div>
+               <br>
+               <div class="row">
+                   <div class="col-6">
+                       <label for="AvailableFrom">Доступен с</label>
+                       <input name="AvailableFrom" type="date"class="form-control" placeholder="Доступен с">
+                   </div>
+                   <div class="col-6">
+                       <label for="AvailableTo">Доступен до</label>
+                       <input name="AvailableTo" type="date"class="form-control" placeholder="Доступен до">
+                   </div>
+               </div>
+               <br>
+               <br>
+               <input type="submit" >
+           </div>
+           
+       </form>
+    </body>
+
+
+    
+</html>
+

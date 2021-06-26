@@ -12,7 +12,7 @@ confirmButton.addEventListener("click", async()=>{
     basket.forEach(item => {
         products.push({ IdProduct: item.prod.id, Amount: item.amount });
     });
-
+    let promocode = getPromocode();
     await axios.post("/checkout/SendCheckout", 
         {
             Name: contacts.name,
@@ -20,7 +20,8 @@ confirmButton.addEventListener("click", async()=>{
             DeliverPlace: addressInfo.deliveryAddress,
             Delivery: addressInfo.typeDelivery,
             Instructions: addressInfo.instructions,
-            Products: products
+            Products: products,
+            PromocodesCode: promocode.code,
         }
     );
 });
