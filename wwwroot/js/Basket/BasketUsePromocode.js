@@ -7,17 +7,20 @@ promocodeButton.addEventListener("click",async ()=>{
     let data = await axios.get(`promocode/getpromocodebycode?code=${promocodeInputVal}`);
     data = data.data;
     if(!data.isAvailable){
-        setCheckout({
+        
+        setPromocode({
             code: "",
             discount: 0,
             isAvailable: false
         });
-        alert("Промокод недоступный")
+        draw();
+        alert("Промокод недоступный");
     }
     else{
         setPromocode(data);
+        draw();
     }
-    draw();
+    
     
 
 });

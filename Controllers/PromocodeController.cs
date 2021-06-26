@@ -20,7 +20,7 @@ namespace Controllers
         {
             if(string.IsNullOrEmpty(code)) return BadRequest();
             Promocode promocode = await _promService.GetPromocodeByCode(code);
-           
+            if(promocode==null) return Ok(new Promocode{ });
             GetPromocodeModel model = new GetPromocodeModel{ Code=promocode.Code, Discount= promocode.Discount, IsAvailable = _promService.IsAvailable(promocode)  };
             return Ok(model);
         }

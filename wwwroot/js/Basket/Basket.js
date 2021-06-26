@@ -136,10 +136,11 @@ let draw= ()=>{
         item.innerHTML= countBasket();
     })
     let promocode = getPromocode();
+
+
+    let payToProm = document.querySelectorAll(".to-pay-promo");
+    let payTos= document.querySelectorAll(".to-pay");
     if(promocode.code && promocode.isAvailable){
-    
-        let payToProm = document.querySelectorAll(".to-pay-promo");
-        let payTos= document.querySelectorAll(".to-pay");
         payToProm.forEach(item=> {
             item.classList.remove("hide");
             let count= countBasket();
@@ -149,6 +150,15 @@ let draw= ()=>{
     
         payTos.forEach(item=>{
             item.classList.add("pay-to-line-through")
+        })
+    }
+    else{
+        payToProm.forEach(item=> {
+            item.classList.add("hide");
+        });
+    
+        payTos.forEach(item=>{
+            item.classList.remove("pay-to-line-through")
         })
     }
 })

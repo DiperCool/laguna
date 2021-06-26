@@ -2,8 +2,7 @@
 if(getPromocode().code!==""){
     let promocode = getPromocode();
     let loadPromocode = async()=>{
-        let data = (await axios.get(`promocode/getPromocodeByCode?code=${promocode.code}`)).data;
-        console.log(data);
+        let data = (await axios.get(`/promocode/getPromocodeByCode?code=${promocode.code}`)).data;
         if(!data.isAvailable){
             setPromocode({
                 code: "",

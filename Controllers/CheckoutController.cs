@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Entities;
 using Interfaces;
@@ -39,20 +41,27 @@ namespace Controllers
         [HttpPost]
         public async Task<IActionResult> SendCheckout([FromBody] OrderModel model)
         {
-            if(!ModelState.IsValid) return BadRequest();
+            if (!ModelState.IsValid) return BadRequest();
             var products = await _checkoutService.GetProducts(model);
-            
+
             Promocode promocode = await _promocodeService.GetPromocodeByCode(model.PromocodesCode);
-            if(!_promocodeService.IsAvailable(promocode)){
-                promocode=null;
+            if (!_promocodeService.IsAvailable(promocode))
+            {
+                promocode = null;
             }
-            Order order = new Order{ Guid= Guid.NewGuid().ToString(),Products = products.Select(x=>new ProductAmount{ ProductId = x.Product.Id, Amount= x.Amount }).ToList(), Instructions= model.Instructions, Name= model.Name, Phone= model.Phone, DeliveryPlace = model.DeliveryPlace, Delivery= model.Delivery, Promocode= promocode };
-            var content = await _viewRenderService.RenderToStringAsync("Checkout/_EmailPartial", new CheckoutInfoModel(){ Products= products, Model= model, Promocode=promocode });
-            await _emailService.Send(content,  order.Guid);
+            Order order = new Order { Guid = Guid.NewGuid().ToString(), Products = products.Select(x => new ProductAmount { ProductId = x.Product.Id, Amount = x.Amount }).ToList(), Instructions = model.Instructions, Name = model.Name, Phone = model.Phone, DeliveryPlace = model.DeliveryPlace, Delivery = model.Delivery, Promocode = promocode };
+            await _promocodeService.IncreaseUsedTimes(promocode.Id);
             order = await _orderService.CreateOrder(order);
+            var content = await _viewRenderService.RenderToStringAsync("Checkout/_EmailPartial", new CheckoutInfoModel() { Products = products, Model = model, Promocode = promocode });
 
-
+            Thread thread = new Thread(async ()=>await SendEmail(content,_emailService,order));
+            thread.Start();
             return Ok();
+        }
+
+        private async Task SendEmail(string content, IEmailService email,Order order)
+        {
+            await email.Send(content, order.Guid);
         }
     }
 }

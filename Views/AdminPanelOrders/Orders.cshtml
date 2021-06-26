@@ -26,6 +26,22 @@
             </table>
             
         </div>
+        <div >
+            <ul class="pagination">
+                <li class="page-item @(Model.Page.PageNumber==1? "disabled": "")">
+                    <a class="page-link" href="/AdminPanelOrders/orders?page=@(Model.Page.PageNumber-1)">Prev</a>
+                </li>
+                @foreach (var item in Enumerable.Range(1, Model.Page.TotalPages))
+                {
+                    <li class="page-item @(item==Model.Page.PageNumber? "active" : "")">
+                        <a class="page-link" href="/AdminPanelOrders/orders?page=@item">@item</a>
+                    </li>
+                }
+                <li class="page-item @(Model.Page.PageNumber==@Model.Page.TotalPages? "disabled": "")" >
+                    <a class="page-link" href="/AdminPanelOrders/orders?page=@(Model.Page.PageNumber+1)">Next</a>
+                </li>
+            </ul>
+        </div>
            
     </body>
 </html>
