@@ -54,3 +54,34 @@ const getPromocode=()=>{
 const setPromocode = obj =>{
     localStorage.setItem("promocode", JSON.stringify(obj));
 }
+
+
+const clearBasket=()=>{
+
+
+    localStorage.setItem("basket", JSON.stringify([]));
+
+
+
+    let checkout= {
+        addressInfrormation: {
+            typeDelivery: "Delivery",
+            deliveryAddress : "",
+            instructions: ""
+        },
+        contact:{
+            name:"",
+            phone: ""
+        }
+    }
+
+    localStorage.setItem("checkout", JSON.stringify(checkout));
+
+
+    let promocode = {
+        code: "",
+        discount: 0,
+        isAvailable: false
+    }
+    localStorage.setItem("promocode", JSON.stringify(promocode));
+}

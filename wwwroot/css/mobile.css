@@ -1,0 +1,67 @@
+
+@font-face{
+    font-family: "CoreSans75Black" ;
+    src: url(/font/CoreSansDS75Black.ttf);
+    
+}
+
+@font-face {
+    font-family: "CoreSansDS65Heavy";
+    src: url(/font/CoreSansDS65Heavy.ttf);
+}
+
+#content{
+    color:black;
+    background-color: silver;
+}
+
+.product{
+    padding: 5px;
+    padding-bottom: 10px;
+    background-color: white;
+    width: 90%;
+    border-radius: 30px;
+    color:#27292e ;
+}
+
+.img-product{
+    width: 100%;
+    border-radius: 30px;
+}
+.name-category{
+    margin-left: 5%;
+    text-transform: uppercase;
+    font-family: "CoreSans75Black";
+    font-size: 30px;
+    color: #27292e;
+}
+.product-name{
+    text-transform: uppercase;
+    font-family: "CoreSansDS65Heavy";
+    font-size: 21px;
+    color: #27292e;
+}
+
+.product-description{
+    font-family: "CoreSansBold";
+    font-size: 9px;
+    color: #73808d;
+}
+
+.product-cost{
+    font-family: "CoreSansDS65Heavy";
+    font-size: 27px;
+    color: #27292e;
+}
+
+.amount{
+    font-family: 'CoreSans75Black';
+    font-size: 25px;
+}
+
+.product-excerpt{
+    font-family: "CoreSansBold";
+    font-size: 9px;
+    color: #73808d;
+
+}

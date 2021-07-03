@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="~/css/checkout.css"/>  
+        <link rel="stylesheet" href="~/css/checkout.css" asp-append-version="true"/>  
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
       
     </head>
@@ -36,7 +36,7 @@
                     </div>
                     <br>
                     <div class="delivery-information hide"> 
-                        <h4>Адрес доставки</h4>
+                        <h4 style="font-family: Bookman Old Style">Адрес доставки</h4>
                         <input type="text" id="address" placeholder="Добавить название улицы и номер дома" class="form-control"> 
                         <br>
                         <span class="linkInstructions">Добавить инструкции по доставке</span>
@@ -55,7 +55,7 @@
                     <br>
 
                     <div style="text-align: center;">
-                        <button class="button-actived button-continue" style="width: 100%;"  >Далее</button>
+                        <button class="button-continue btn btn-outline-danger" style="width: 100%;"  >Далее</button>
                     </div>
                 </div>
             </div>
@@ -81,7 +81,7 @@
                     </div>
                     <br>
                     <div style="text-align: center;">
-                        <button class="button-actived button-continue" style="width: 100%;"  >Далее</button>
+                        <button class="button-continue btn btn-outline-danger" style="width: 100%;"  >Далее</button>
                     </div>
                 </div>
             </div>
@@ -106,7 +106,7 @@
                     Оплата наличными курьеру.
                     <br>
                     <div style="text-align: center;">
-                        <button class="button-actived button-continue" style="width: 100%;"  >Далее</button>
+                        <button class="button-continue btn btn-outline-danger" style="width: 100%;"  >Далее</button>
                     </div>
                 </div>
             </div>
@@ -146,7 +146,7 @@
                 </div>
             </div>
             <div style="text-align: center;">
-                <button class="button-actived" style="width: 100%;" id="confirm-order" >Отправить заказ</button>
+                <button class="button-continue btn btn-outline-danger" style="width: 100%;" id="confirm-order" >Отправить заказ</button>
             </div>
         </div>
 

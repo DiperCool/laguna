@@ -88,12 +88,17 @@ let drawItem = (item)=>{
 let draw= ()=>{
     content.innerHTML="";
     let totals=document.querySelector(".basket-total");
+    let back = document.querySelector(".back-to");
+    back.classList.add("hide");
     if(countBasket()===0)
     {
         totals.classList.add("basket-total-hide");
 
-        let back = document.querySelector(".back");
-        back.classList.toggle("back");
+        console.log("back!!!");
+        
+        back.classList.remove("hide");
+        console.log(back.classList);
+
         return;
     }
     totals.classList.remove("basket-total-hide");
@@ -162,6 +167,6 @@ let draw= ()=>{
         })
     }
 })
-    
+
 }
 draw();

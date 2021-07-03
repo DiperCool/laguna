@@ -24,4 +24,7 @@ confirmButton.addEventListener("click", async()=>{
             PromocodesCode: promocode.code,
         }
     );
+    alert("Заказ успешно оформлен");
+    clearBasket();
+    document.location.href="/";
 });

@@ -2,20 +2,21 @@
 <!DOCTYPE html>
 <html>
     <head>
-<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-        <link rel="stylesheet" href="~/css/basket.css" asp-append-version="true"/>        
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/basket.css" asp-append-version="true"/> 
+    <link rel="stylesheet" href="~/css/button.css" asp-append-version="true"/>       
     </head>
     <body>
         <div id="content">
             <div id="products">
 
             </div>
-            <div class="row">
-                <div class="col-9">
+            <div class="row d-flex align-items-center">
+                <div class="col-8">
                     <input typle="text"placeholder="Промокод" class="form-control" id="promocode">
                 </div>
-                <div class="col-3">
-                    <button class="btn btn-primary" id="usePromocode">Использовать</button>
+                <div class="col-4">
+                    <button class="confirm-button btn btn-outline-danger" id="usePromocode" style="width: 100%">Использовать</button>
                 </div>
             </div>
 
@@ -49,16 +50,16 @@
                 </div>
                 <div style="text-align: center">
                     <a href="~/checkout">
-                        <button class="confirm-button">Перейти к оформлению</button>
+                        <button class="confirm-button btn btn-outline-danger">Перейти к оформлению</button>
                     </a>
                 </div>
             </div>
 
-            <div class="back" style="text-align: center">
+            <div class="back-to hide" style="text-align: center">
                 Ваша корзина пуста
                 <br>
                 <a href="~/">
-                    <button class="confirm-button">Продолжить покупки</button>
+                    <button class="confirm-button btn btn-outline-danger">Продолжить покупки</button>
                 </a>
             </div>
             

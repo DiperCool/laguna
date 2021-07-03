@@ -3,9 +3,9 @@ let setAddressHeadsContent = ()=>{
     let checkout = getCheckout();
     let addressInfo = checkout.addressInfrormation;
     if(addressInfo.typeDelivery==="Delivery"){
-        return [ addressInfo.typeDelivery, addressInfo.deliveryAddress, addressInfo.instructions]
+        return [ "Доставка", addressInfo.deliveryAddress, addressInfo.instructions]
     }
-    return [ addressInfo.typeDelivery ];
+    return [ "Самовывоз" ];
 }
 
 let setContactsHeadsContent = ()=>{

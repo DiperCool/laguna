@@ -1,0 +1,78 @@
+@model List<Entities.Product>
+<style>
+    .spacing>div{
+        margin: 0 5px;
+    }
+    .button-product{
+        transition: all .5s ease;
+        fill:#27292e;
+    }
+    .button-product-active{
+        fill:green;
+    }
+    
+</style>
+<link rel="stylesheet" href="~/css/mobile.css" asp-append-version="true">
+<div id="content">
+    @foreach (var category in ViewBag.Categories)
+           {
+               if(Model.Where(x=>x.Category.Name==category.Name).Count()==0) continue;
+               <div class="name-category">@category.Name</div>
+                foreach (var item in Model.Where(x=>x.Category.Name==category.Name)){  
+                    <div data-id="@item.Id" class="product d-flex flex-column m-auto">
+                        <div>
+                            <img class="img-product" src="@item.UrlPhoto">
+                        </div>
+                        <div class="text-color product-name">
+                            @item.Name
+                        </div>
+                        <div class="d-flex" class="text-color">
+                            <div class="product-description">
+                                @item.Description
+                            </div>
+                            <div class="ml-auto spacing product-excerpt">
+                                <div>
+                                    @item.Excerpt гр.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex" class="text-color">
+                            <div class="d-flex align-items-center" >
+                                <div class="product-cost">
+                                @item.Cost
+                                </div>
+                                <div class="d-flex justify-content-around">
+                                    <svg xmlns="/icons/UAH.svg" style="width: 24px ; height:16px; fill:black;">
+                                        <use  style="fill: black;" xlink:href="/icons/icon.svg#grn"></use>
+                                    </svg>
+                                    
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-center ml-auto spacing">
+                                <div class="minus button-product" data-id="@item.Id">
+                                    <svg style="width: 30px; height:30px;">
+                                        <use xlink:href="/icons/icon.svg#minus">
+                                            
+                                        </use>
+                                    </svg>
+                                </div>
+                                <div class="amount" data-id="@item.Id">
+                                    0
+                                </div>
+                                <div class="plus button-product" data-id="@item.Id">
+                                    <svg style="width: 30px; height:30px;">
+                                        <use xlink:href="/icons/icon.svg#plus">
+                                            
+                                        </use>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                }
+           }
+</div>
+
+<script src="~/js/Android/Home.js" asp-append-version="true"></script>

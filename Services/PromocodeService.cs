@@ -59,7 +59,7 @@ namespace Services
         {
             if(promocode==null) return false;
             DateTime now = DateTime.Now;
-            bool promocodeIsAvailable = ( promocode.AvailableFrom < now && promocode.AvailableTo > now  );
+            bool promocodeIsAvailable = ( promocode.AvailableFrom < now && promocode.AvailableTo > now  ) && promocode.MaxUseTimes>promocode.UsedTimes;
             return promocodeIsAvailable;
         }
 

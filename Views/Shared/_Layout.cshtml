@@ -5,60 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Laguna</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css"  />
-    <link rel="stylesheet" href="~/css/index.css"/>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/index.css" asp-append-version="true"/>
     <link rel="stylesheet" href="~/css/category.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="~/js/localStorage.js" asp-append-version="true"></script>
     <script src="~/js/Index/CountBasket.js" asp-append-version="true"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="icon" href="~/favicon.png" type="image/png">
     <script src="~/js/promocode.js" asp-append-version="true"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="~/lib/swiper/swiper-bundle.min.css" />
+
 </head>
 <body>
 
-    <div  class="header header_fixed ">
-        <div class="row">
-            <div class="col-10">Laguna</div>
-            <div class="col-2 d-flex align-items-center justify-content-end">
-                <div class="d-flex justify-content-around align-items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-telephone svg" viewBox="0 0 16 16">
-                        <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg"  xmlns:xlink="http://www.w3.org/1999/xlink" class="svg" width="31.99" height="31.99" viewBox="0 0 208 208">
-                        <image id="Слой_1" data-name="Слой 1" x="16" y="12" width="176" height="192" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAeCAYAAADdGWXmAAACc0lEQVRIia2WXYiOQRTHf7YVYjfEykpW4kJKLrZdIcnKhdpcaF3ZG5EUtckmtTekKFGyd1yQQi4VUeurLEpb7G5KvC585KNdH6185aN5+j8aszPzPJ73/dfU877nP/M/c+acMzOGOBqAZUAjMBuYAcwExgGfgDfAO+AV8BC4BwxmrDkKG4G7wO8CowQcAKZmiSwAbhYUcccwsDUktBAYqZCQPXanAumZTQBeAlNyhPi5zsY4Vg+s0PwYlgO3U/uhgFc/PP9tASYDc4Baze/I2F1/urNqZZbrnTnkbmA+cMOKwgvgDPBZ2Woc2iXhUmSXhssijyenHOIax94CNAGzgLUSaVRYQ7vbaRba7DEs9Xh20rLfB/YAF4BNQB3wSLyDAbGzxnjcY+gMhOK97Fd0bjXAE2C1dtsl3i/PmuYoOOcxlAIx/+jwdsh2WUVsHB+rnY9KkqpApc+VtymWAI+t7EtxzBKrV/KYlvbMs2aNEZseCNlh67tFHvtwDdggR35KcKKHl8x/GsmgbSLOy9EpRlRP7cCQx26cYCBjkToJdpbZtpI86Mkg2VdGt8feB7zNIZZ0kfM5iFctQVOXH+xCBSYBpzPWuGWI+3OG4aIlOE0dw8X2yHxTYkm3yBv3PvXKGPYG5iZ3m2nE3/5D8LtCGcKRwLy/9Xy0QHb1AisdwdYAt8cm1crjIindqyvmRISz2I1Cc0GxrNERineTUrQSIkOxB4+NVcCdAgKv5WyXrqB/UB0Qu66rv9lj26c+aDL4i856WEIP9NuLkBgqXBfrgEt5QuNDVcTmPs1byxEyiImNt77bnHZVcbGvegas18OmPAB/ALZeq0j4ky0OAAAAAElFTkSuQmCC"/>
-                        <image id="Слой_2" data-name="Слой 2" x="16" y="12" width="176" height="192" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAeCAYAAADdGWXmAAAC1klEQVRIibWWa2jPURjHP/u1hWRyby41MrEoUy6Lkdxe0Hgh3mmZopbkUhQiIncizLVcyguXN4oimxJzKSLeKPbCjOUymy0MTY++//r13znnvwvf+tU5v+c553ue23lOWl1VFQFkAxOBscAgoB+QBXQC6oEa4ANQDTwDHgAvfNule/4vBFYC4wMHGQCMcPyvBC4Ae4HPcUGyZcOAE8DkkLmtRC2wDjjusiwXeAh0/QdEhh7AMaA7sDtuWRfgrRRS4Y1i0wD0Bwq0PoRJwN2EZZs9RL8ccd0KXNSJa5UoFt99AbJSYJRZlq4FyafbBhwGcoDb5gX9N1ecBxqVrT+B1UAm8DpgZbYRDXconAU2aPwOmAXc0HwgcAv4KuKRwHNl8FCFw4W5kSe9S5PmN4HTsfkOYCpwAOgLTNABrd52esjyjSzPIShw/CsGvmj8SQdaDGyyeADLgY1K92bH+iwj6+0QLHP8s/hEGs9UchTJdWuAx7phMjRORi9b3NMhGAxMi83N+pdKgjgOanxdZVAlwkrHnt2MrI9DYNgTG0/XiV0oA+brIL9F6LoYMiLHaRMYHXPnFY8OSpQCZesifa6kazayb4GNjirbXgFrA3rIGiuDM57QNEVqEyGUS7YLOOLQe6I2kwqNRvYxhVJurKBLgCVAneYrgDHAEOBcin1qI2VZKswArkrnlNJ9XCwbGxSrksA+1UZ2rRVkhjmqnxx545FDx9y83rO+LNKiplYS5qntFwd0XJeE4VKkNuIKvA9WbyeBe8CUJJ1CtZsWVtkTIdE8M+UaX+GGUAFc1nvEZ7HV7NNEY6zXu6OiHWT5+nxYZUTELlbDfbWKO+0gdMFeVkuB/QmZ791oV9B2kbcFNSol63+HYi3pL3zvxnK1fhfZFtXVD111TbLivdzlzWwfGZ4Unt2GumyBKCBLS5oXdoTIECLrHBsviF1X/4Xsuy7ceXondgzAH7p4oVl2K0nSAAAAAElFTkSuQmCC"/>
-                    </svg>
-                </div>
-                <a class="redButton" href="~/basket">
-                    <span id="count"></span>
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg" width="20" height="20" viewBox="0 0 2133 2133">
-                        <image id="Слой_3" data-name="Слой 3" x="597" y="1253" width="943" height="501" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAICAYAAADJEc7MAAAAl0lEQVQYlY2RsQrCQBBE30m08CcU0UK/wc5CP9mfUESRw0DAQvIDQUEkJAzs4XmmyDS7M8xrdl1VljfgAWz4ygFH4Ams+dUemAlsLB4Bn2h/2+4ibADUYTlYOOVfrySZ2LwIPJuZd4CpQuck0JtZ9ABDxwvMzax6gEubucDCzK6jOE781maRAXrHHbhGBV1XXu+IpWwI+BbLOiB90/KcqgAAAABJRU5ErkJggg=="/>
-                        <image id="Слой_2" data-name="Слой 2" y="129" width="2133" height="1875" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAcCAYAAAAAwr0iAAACT0lEQVRIicWW30tUQRTHP+ZKSEFCkhZJJEKESQ+9GRX2g1qsDcMgAv+FeooU6bWgvyMofDEi0SK3MHqrSIoCX4ISzSBacYtajeQs34HreHfdq7P1hcvMnTv3fL9z5pwzU7MwM0MCDAEXgV3ArPfbDmAOGAYuVGpyUwLyayLPAT9jvtvYN6AH6A8tIA3cVv8EMB8zJ69vhlvA2VAC9gIP1O8DXpeZOwlcVt/+aQshwAyl5IE7Fcy/C9wEavRvWY61BJixA8AocL0CcodB4CGwH7i3XgEDwCXgE9CbgNzBAvaj2hulJpVKw3ORfe8A3q1DAPLAe/UtO+77E+I80BYhP7IBcsMHoFN9qw/7/Akp5Xda+Z0XqeGrXH8FqAP+JiS3IFwCplWgmoBHwASwFdgGPLYtyOnlf2A+JXJb+SGgAGypshCrmLXAS+NOafA3MPWPPWCcxRiw1W8HLB1+Ac3AZuBPYMJaeXhW9u3wypuALJABdoq0oOxIclBVCgvkFi3c8NRIzitis1LZrfe6wI/ZPC3yCb1noqscUXtM7VLgJ2rbca1w87janiq43sHZfuIG/FL8GdgNtKqOh0SLzpUvirdVHiBSgruqsPrjHkesgDG16SoIOONxFOFvQQPwHVhUvS4EIrfsWgDqgUbdHYvwPZBTgFjaHA5EjmwZ+bMoeZwAdJMxnAoo4KRnu6yArNpMQAHO1rj/IU7AW6VLu9Jxo9gDHNRZ88a35WqyD7u9XAVeAT/KzFsLdrbY3jubq1DqTmjXqBcBVh/FUeD5ihFgGbGTj4TA8HhnAAAAAElFTkSuQmCC"/>
-                    </svg>
-
-                </a>
-            </div>
-        </div>
-        <nav id="nav">
-            @if(!ViewBag.IsAdmin){
-                foreach (var item in ViewBag.Categories)
-                {
-                    <a class="redButton" href="~/product/@item.Name">@item.Name</a>
-                }
-            }
-            else{
-                <a class="redButton" href="~/AdminPanelProduct/Products">Список продуктов</a>
-                <a class="redButton" href="~/AdminPanelProduct/createproduct">Создать продукт</a>
-                <a class="redButton" href="~/AdminPanel/category">Управление категориями</a>
-                <a class="redButton" href="~/AdminPanelOrders/orders">Заказы</a>
-                <a class="redButton" href="~/AdminPanelPromocode/GetPromocodes">Список промокодов</a>
-                <a class="redButton" href="~/AdminPanelPromocode/CreatePromocode">Создать промокод</a>
-            }
-        </nav>
-    </div>
+   <div>
+       <partial name="_header-pc.cshtml" />
+    
+       <partial name="_header-phone.cshtml" />
+   </div>
 
     <div>
-        <main role="main" class="pb-3 content">
+        <main role="" class="pb-3 body-content">
             @RenderBody()
         </main>
     </div>
@@ -66,7 +34,6 @@
     <script>
         countBasket();
     </script>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>

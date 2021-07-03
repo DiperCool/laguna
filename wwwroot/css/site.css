@@ -10,7 +10,7 @@ body
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
-  background-color: #333333;
+  background-color: #1d241a;
   color: white;
 }
 
@@ -24,10 +24,20 @@ a:hover{
   color: white;
 }
 
-.content{
-  margin-top: 110px;
-}
-
 button:active, button:focus {
   outline: none;
 }
+
+hr{
+  border: none;
+  border-bottom: 1px white solid;
+}
+
+input{
+  font-family: "Bookman Old Style";
+}
+
+textarea{
+  font-family: "Bookman Old Style";
+}
+

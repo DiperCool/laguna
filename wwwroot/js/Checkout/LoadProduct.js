@@ -10,6 +10,7 @@ products.forEach(item => {
     div.appendChild(divName);
 
     let cost = document.createElement("div");
+    cost.classList.add("cost");
     cost.innerHTML= item.prod.cost + " грн";
     div.appendChild(cost);
 

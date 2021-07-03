@@ -8,6 +8,9 @@ using Microsoft.Extensions.Logging;
 using Laguna.Models;
 using Interfaces;
 using Entities;
+using Wangkanai.Detection.Services;
+using Microsoft.Extensions.Caching.Memory;
+using Laguna.Tools;
 
 namespace Laguna.Controllers
 {
@@ -16,18 +19,31 @@ namespace Laguna.Controllers
         ILogger<HomeController> _logger;
         ICategoryService _catService;
         IProductService _prodService;
+        IDetectionService _detectionService;
+        IMemoryCache _cache;
 
-        public HomeController(ILogger<HomeController> logger, ICategoryService catService, IProductService prodService)
+        public HomeController(ILogger<HomeController> logger, ICategoryService catService, IProductService prodService, IDetectionService detectionService, IMemoryCache cache)
         {
             _logger = logger;
             _catService = catService;
             _prodService = prodService;
+            _detectionService = detectionService;
+            _cache = cache;
         }
 
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            return View(await _prodService.GetProducts());
+            var products = await _cache.GetOrCreate(CacheKeys.Products, async(entry) =>
+            {
+                entry.SlidingExpiration = TimeSpan.FromMinutes(3);
+                return await _prodService.GetProducts();
+            });
+            if(_detectionService.Device.Type==Wangkanai.Detection.Models.Device.Mobile)
+            {
+                return View("~/Views/Android/Home.cshtml", products);
+            }
+            return View(products);
         }
         [Route("/product/{category}")]
         public async Task<IActionResult> Index(string category)

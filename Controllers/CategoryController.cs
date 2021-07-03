@@ -17,10 +17,10 @@ namespace Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateCategories([FromBody] CreateCategoryModel model)
+        public async Task<IActionResult> CreateCategories([FromForm] CreateCategoryModel model)
         {   
             if(!ModelState.IsValid) return BadRequest(model);
-            return Ok(await _service.CreateCategory(model.Name));
+            return Ok(await _service.CreateCategory(model));
         } 
     
         [HttpPost]

@@ -40,6 +40,7 @@ namespace Laguna
                 {
                 options.SerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter());
                 options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
+                options.SerializerSettings.ReferenceLoopHandling= Newtonsoft.Json.ReferenceLoopHandling.Ignore;
                 })
             .AddRazorRuntimeCompilation();
             services.AddDistributedMemoryCache();
@@ -47,6 +48,7 @@ namespace Laguna
             {
                 options.IdleTimeout = TimeSpan.FromHours(5);
             });
+            services.AddDetection();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddTransient<IViewRenderService, ViewRenderService>();
             services.AddTransient<ICheckoutService, CheckoutService>();
@@ -76,10 +78,10 @@ namespace Laguna
             app.UseSession();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseDetection();
             app.UseRouting();
             app.UseAuthorization();
-
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

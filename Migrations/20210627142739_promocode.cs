@@ -14,6 +14,12 @@ namespace Laguna.Migrations
                 type: "integer",
                 nullable: true);
 
+            migrationBuilder.AddColumn<string>(
+                name: "IconUrl",
+                table: "Categories",
+                type: "text",
+                nullable: true);
+
             migrationBuilder.CreateTable(
                 name: "Promocodes",
                 columns: table => new
@@ -63,6 +69,10 @@ namespace Laguna.Migrations
             migrationBuilder.DropColumn(
                 name: "PromocodeId",
                 table: "Orders");
+
+            migrationBuilder.DropColumn(
+                name: "IconUrl",
+                table: "Categories");
         }
     }
 }

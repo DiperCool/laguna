@@ -12,6 +12,10 @@
         margin: 0;
         background-color: #242424;
     }
+    .confirm-button{
+        font-size: 12px;
+        height: 40px;
+    }
 }
 
 .hide{
@@ -34,10 +38,12 @@ text-align: right;
 
 .form-control[type="number"]::-webkit-inner-spin-button,
 .form-control[type="number"]::-webkit-outer-spin-button {
--webkit-appearance: none;
-margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
-
+input[type='number'] {
+    -moz-appearance: textfield;
+}
 
 #content{
     display: flex;
@@ -48,30 +54,12 @@ margin: 0;
 
 
 
-.confirm-button{
-    width: 80%;
-    margin: 0 auto;
-    background-color: red;
-    color: white;
-    font-size: 16px;
-    text-decoration: none;
-    border: none;
-    height: 50px;
-}
 
 #products{
-
     scroll-margin-left: 10px;
-    padding: 0 20px;
+    font-family: "Bookman Old Style";
 }
 
-.back{
-    display: none;
-}
-
-.back-view{
-    display: block;
-}
 
 .basket-total-hide{
     display: none;
@@ -95,3 +83,8 @@ margin: 0;
 .pay-to-line-through{
     text-decoration: line-through!important
 }
+
+.confirm-button{
+    width: 100%;
+}
+

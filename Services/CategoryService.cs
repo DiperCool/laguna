@@ -4,7 +4,10 @@ using System.Threading.Tasks;
 using Db;
 using Entities;
 using Interfaces;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
+using Models;
+using Tools;
 
 namespace Services
 {
@@ -12,9 +15,12 @@ namespace Services
     {
         Context _context;
 
-        public CategoryService(Context context)
+        IWebHostEnvironment _appEnvironment;
+
+        public CategoryService(Context context, IWebHostEnvironment appEnvironment)
         {
             _context = context;
+            _appEnvironment = appEnvironment;
         }
 
         public async Task ChangeName(string name, int id)
@@ -26,9 +32,12 @@ namespace Services
 
         }
 
-        public async Task<Category> CreateCategory(string name)
+        public async Task<Category> CreateCategory(CreateCategoryModel model)
         {
-            Category category = new Category{Name=name};
+            Category category = new Category{Name=model.Name};
+            SaveFile file = new SaveFile();
+            string path = await file.Save(model.File, _appEnvironment.WebRootPath);
+            category.IconUrl=path;
             await _context.Categories.AddAsync(category);
             await _context.SaveChangesAsync();
             return category;

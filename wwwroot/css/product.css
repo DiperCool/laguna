@@ -1,10 +1,14 @@
 .product{
-    border: red 1px solid;
+    border: white 3px solid;
     background-color: #242424;
     color: white;
     padding: 10px;
-    font-size: large;
     margin-top: 10px;
+    font-family: Bookman Old Style Bold;
+    font-weight: bold;
+    line-height: 1.2;
+    font-size: 16px;
+
 }
 
 .product-img{
@@ -34,30 +38,119 @@
 .current-product-visible{
     display: block;
     background-color: #242424;
-    color: white;
+    padding: 20px;
+    color: rgb(192, 193, 194);
+    font-family: Bookman Old Style Bold;
+}
+
+.excerpt-current{
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.description-current{
+    margin-top: 50px;
+    font-size: 23px;
+    white-space: normal;
+}
+
+.cost-current{
+    font-size: 25px;
 }
 
 .img-current-product{
     display: block;
     height: 500px;
-    width: 1000px;
-    margin: 0 auto;
+    width: 100%;
 }
 
-.info-current-product{
-    text-align: center;
+.current-product-info{
+    margin-left: 20px;
 }
-#button-current-product{
-    width: 100%;
-    background-color: red;
-    color: white;
-    font-size: 16px;
-    text-decoration: none;
-    border: none;
-    height: 50px;
-}
+
 
 
 .close-current-product{
     float: right;
+}
+
+
+.close-current-product:hover{
+    cursor: pointer;
+}
+
+.img-current-product:hover{
+    cursor: pointer;
+}
+
+
+.plus-button{
+    fill:white;
+    color: white;
+    transition: fill .2s ease;
+}
+
+
+.plus-button-active{
+    fill:red;
+    color: red;
+
+}
+
+.button-buy:hover{
+    cursor: pointer;
+}
+
+
+.product:hover{
+    cursor: pointer;
+}
+
+.category-name{
+    font-size: 32px;
+    font-family: "Bookman Old Style Bold";
+    color: rgb(192, 193, 194);
+    font-weight: bold;
+    line-height: 1.2;
+    height: 88px;
+    padding: 5px;
+}
+.cost{
+    font-size: 16px;
+    font-family: "Bookman Old Style Bold";
+    color: rgb(192, 193, 194);
+    font-weight: bold;
+}
+
+
+
+.excerpt{
+    margin-top: 13px;
+    font-size: 14px;
+    font-family: "Bookman Old Style Bold";
+    color: rgb(192, 193, 194);
+   
+}
+.name{
+    font-size: 16px;
+    font-family: "Bookman Old Style Bold";
+    color: rgb(192, 193, 194);
+    
+}
+.description{
+    font-size: 16px;
+    font-family: "Bookman Old Style Bold";
+    color: rgb(192, 193, 194);
+}
+.one{
+    background-color:rgb(39, 41, 46) ;
+}
+.two{
+    background-color:#1d241a ;
+}
+
+#button-current-product{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
 }

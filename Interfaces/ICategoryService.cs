@@ -1,12 +1,13 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Entities;
+using Models;
 
 namespace Interfaces
 {
     public interface ICategoryService
     {
-        Task<Category> CreateCategory(string name);
+        Task<Category> CreateCategory(CreateCategoryModel model);
         Task ChangeName(string name, int id);
         Task Delete(int id);
         Task<List<Category>> GetCategories();

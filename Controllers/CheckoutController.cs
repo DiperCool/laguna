@@ -49,12 +49,15 @@ namespace Controllers
             {
                 promocode = null;
             }
+            else{
+               promocode= await _promocodeService.IncreaseUsedTimes(promocode.Id);
+            }
             Order order = new Order { Guid = Guid.NewGuid().ToString(), Products = products.Select(x => new ProductAmount { ProductId = x.Product.Id, Amount = x.Amount }).ToList(), Instructions = model.Instructions, Name = model.Name, Phone = model.Phone, DeliveryPlace = model.DeliveryPlace, Delivery = model.Delivery, Promocode = promocode };
-            await _promocodeService.IncreaseUsedTimes(promocode.Id);
+            
             order = await _orderService.CreateOrder(order);
             var content = await _viewRenderService.RenderToStringAsync("Checkout/_EmailPartial", new CheckoutInfoModel() { Products = products, Model = model, Promocode = promocode });
 
-            Thread thread = new Thread(async ()=>await SendEmail(content,_emailService,order));
+            Thread thread = new Thread(async ()=>await SendEmail(content, _emailService, order));
             thread.Start();
             return Ok();
         }

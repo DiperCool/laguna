@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace Entities
 {
     public class Product
@@ -9,6 +11,7 @@ namespace Entities
         public double Excerpt { get; set; }
         public string UrlPhoto { get; set; }
         public int CategoryId { get; set; }
+        [JsonIgnore]
         public Category Category { get; set; }
     }
 }

@@ -15,12 +15,16 @@ const addressInfrormationValidationAndSave = ()=>{
 
 
 const contactsValidationAndSave=()=>{
-    let name = document.querySelector("#name").value;
-    let phone = document.querySelector("#phone").value;
-    if(phone==="") return false;
+    let name = document.querySelector("#name");
+    let phone = document.querySelector("#phone");
+    if(phone.value===""){
+        phone.classList.add("error");
+        return false;
+    }
+    phone.classList.remove("error");
     let checkout = getCheckout();
-    checkout.contact.name= name;
-    checkout.contact.phone = phone;
+    checkout.contact.name= name.value;
+    checkout.contact.phone = phone.value;
     setCheckout(checkout);
     return true;
 }

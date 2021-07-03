@@ -23,10 +23,10 @@ button{
 }
 
 .button-type-delivery{
-    background: #c41e3a;
+    background: #336b27;
 }
 .button-actived{
-    background: red;
+    background: #41b144;
 }
 
 
@@ -63,4 +63,24 @@ button{
 
 .pay-to-line-through{
     text-decoration: line-through!important
+}
+
+.level{
+    font-family: "Bookman Old Style Bold";
+}
+
+#products{
+    font-family: "Bookman Old Style";
+}
+.cost{
+    font-family: "Bookman Old Style Bold";
+}
+
+
+#sum{
+    font-family: "Bookman Old Style Bold";
+}
+
+.error{
+    border-color: #dc3545;;
 }

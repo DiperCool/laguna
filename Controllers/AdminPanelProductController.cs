@@ -3,8 +3,10 @@ using System.Threading.Tasks;
 using Entities;
 using Filters;
 using Interfaces;
+using Laguna.Tools;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.Extensions.Caching.Memory;
 using Models;
 
 namespace Controllers
@@ -14,10 +16,14 @@ namespace Controllers
     {
         IProductService _service;
 
-        public AdminPanelProductController(IProductService service)
+        IMemoryCache _memoryCache;
+
+        public AdminPanelProductController(IProductService service, IMemoryCache memoryCache)
         {
             _service = service;
+            _memoryCache = memoryCache;
         }
+
         [HttpPost]
         public async Task<IActionResult> CreateProduct(CreateProductModel model)
         {
@@ -31,6 +37,7 @@ namespace Controllers
                 return View(model);
             }
             await _service.CreateProduct(model);
+            _memoryCache.Remove(CacheKeys.Products);
             return View();
         }
         [HttpGet]
@@ -67,13 +74,14 @@ namespace Controllers
                 return View(model);
             }
             await _service.UpdateProduct(model);
-    
+            _memoryCache.Remove(CacheKeys.Products);
             return RedirectToAction("Products");
         }
         [HttpPost]
         public async Task<IActionResult> DeleteProduct(DeleteProductModel model)
         {
             await _service.DeleteProduct(model.Id);
+            _memoryCache.Remove(CacheKeys.Products);
             return RedirectToAction("Products");
         }
         [HttpGet]

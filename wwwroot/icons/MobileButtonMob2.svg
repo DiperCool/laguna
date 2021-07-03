@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="38" viewBox="-0.48 -2.006 98.961 94.013">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="98" height="90"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#clip-path)">
+    <image id="mobileButton" x="22" y="18" width="54" height="54" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAABhUlEQVQ4jaXVzysEYRzH8fcSJwclh1UjBzWHSWodSJHipNy0DkQc/A8Kubk6uHARRdvi5MJBOSwHPw96Ds9GqYektXJwItKzzW5jdmfwzPcyNZ9vr3lmnpnvxFIHhzi2FQfSQALYBqaFVO9EqNj1XbYKOAa6PMweMBwF12jSh+oaAnYc26qNAk8FZEW8xhROhOQanzCFG37piZvCryH5A7BmCt8GZHmgT0h1bwqfBmSXQqobE7QI7wdkjmNbsahwvkLWBAwYw+7XtRyQLzi2VW0Eu8clIFch7wbmTeDCENLl2NY4sB7QtwjMCak+vScd22oGJoFH/VoKqT78K0ZItQGkAuAZIOPYVo8HbQPO9eMCVoBd72wprdhtrgOOgI6Qu9SrywLtQL0vK03FH7CLNwInQGsIHlYFvMrfIKTKuZt2ZQjrwbVaBnvwXmDLEE9WhF38TUg1CowBT/+EzwJhzwU2ARuYBZ7/gGaAkbLNCyv3b9IPDAKdQAugN/sFuHBHbFpI9fUNVGZ1oVXtDF0AAAAASUVORK5CYII="/>
+  </g>
+</svg>

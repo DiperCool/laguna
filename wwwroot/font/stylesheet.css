@@ -1,0 +1,168 @@
+@font-face {
+    font-family: 'Core Sans DS 25';
+    src: url('CoreSansDS25Light.eot');
+    src: local('Core Sans DS 25 Light'), local('CoreSansDS25Light'),
+        url('CoreSansDS25Light.eot?#iefix') format('embedded-opentype'),
+        url('CoreSansDS25Light.woff2') format('woff2'),
+        url('CoreSansDS25Light.woff') format('woff'),
+        url('CoreSansDS25Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Core Sans DS 65';
+    src: url('CoreSansDS65HeavyItalic.eot');
+    src: local('Core Sans DS 65 Heavy Italic'), local('CoreSansDS65HeavyItalic'),
+        url('CoreSansDS65HeavyItalic.eot?#iefix') format('embedded-opentype'),
+        url('CoreSansDS65HeavyItalic.woff2') format('woff2'),
+        url('CoreSansDS65HeavyItalic.woff') format('woff'),
+        url('CoreSansDS65HeavyItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Core Sans DS 75';
+    src: url('CoreSansDS75BlackItalic.eot');
+    src: local('Core Sans DS 75 Black Italic'), local('CoreSansDS75BlackItalic'),
+        url('CoreSansDS75BlackItalic.eot?#iefix') format('embedded-opentype'),
+        url('CoreSansDS75BlackItalic.woff2') format('woff2'),
+        url('CoreSansDS75BlackItalic.woff') format('woff'),
+        url('CoreSansDS75BlackItalic.ttf') format('truetype');
+    font-weight: 800;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Core Sans DS 65';
+    src: url('CoreSansDS65Heavy.eot');
+    src: local('Core Sans DS 65 Heavy'), local('CoreSansDS65Heavy'),
+        url('CoreSansDS65Heavy.eot?#iefix') format('embedded-opentype'),
+        url('CoreSansDS65Heavy.woff2') format('woff2'),
+        url('CoreSansDS65Heavy.woff') format('woff'),
+        url('CoreSansDS65Heavy.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Core Sans DS 15';
+    src: url('CoreSansDS15Thin.eot');
+    src: local('Core Sans DS 15 Thin'), local('CoreSansDS15Thin'),
+        url('CoreSansDS15Thin.eot?#iefix') format('embedded-opentype'),
+        url('CoreSansDS15Thin.woff2') format('woff2'),
+        url('CoreSansDS15Thin.woff') format('woff'),
+        url('CoreSansDS15Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Core Sans DS 35';
+    src: url('CoreSansDS35RegularItalic.eot');
+    src: local('Core Sans DS 35 Regular Italic'), local('CoreSansDS35RegularItalic'),
+        url('CoreSansDS35RegularItalic.eot?#iefix') format('embedded-opentype'),
+        url('CoreSansDS35RegularItalic.woff2') format('woff2'),
+        url('CoreSansDS35RegularItalic.woff') format('woff'),
+        url('CoreSansDS35RegularItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Core Sans DS 35';
+    src: url('CoreSansDS35Regular.eot');
+    src: local('Core Sans DS 35 Regular'), local('CoreSansDS35Regular'),
+        url('CoreSansDS35Regular.eot?#iefix') format('embedded-opentype'),
+        url('CoreSansDS35Regular.woff2') format('woff2'),
+        url('CoreSansDS35Regular.woff') format('woff'),
+        url('CoreSansDS35Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Core Sans DS 45';
+    src: url('CoreSansDS45Medium.eot');
+    src: local('Core Sans DS 45 Medium'), local('CoreSansDS45Medium'),
+        url('CoreSansDS45Medium.eot?#iefix') format('embedded-opentype'),
+        url('CoreSansDS45Medium.woff2') format('woff2'),
+        url('CoreSansDS45Medium.woff') format('woff'),
+        url('CoreSansDS45Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Core Sans DS 75';
+    src: url('CoreSansDS75Black.eot');
+    src: local('Core Sans DS 75 Black'), local('CoreSansDS75Black'),
+        url('CoreSansDS75Black.eot?#iefix') format('embedded-opentype'),
+        url('CoreSansDS75Black.woff2') format('woff2'),
+        url('CoreSansDS75Black.woff') format('woff'),
+        url('CoreSansDS75Black.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Core Sans DS 45';
+    src: url('CoreSansDS45MediumItalic.eot');
+    src: local('Core Sans DS 45 Medium Italic'), local('CoreSansDS45MediumItalic'),
+        url('CoreSansDS45MediumItalic.eot?#iefix') format('embedded-opentype'),
+        url('CoreSansDS45MediumItalic.woff2') format('woff2'),
+        url('CoreSansDS45MediumItalic.woff') format('woff'),
+        url('CoreSansDS45MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Core Sans DS 25';
+    src: url('CoreSansDS25LightItalic.eot');
+    src: local('Core Sans DS 25 Light Italic'), local('CoreSansDS25LightItalic'),
+        url('CoreSansDS25LightItalic.eot?#iefix') format('embedded-opentype'),
+        url('CoreSansDS25LightItalic.woff2') format('woff2'),
+        url('CoreSansDS25LightItalic.woff') format('woff'),
+        url('CoreSansDS25LightItalic.ttf') format('truetype');
+    font-weight: 200;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Core Sans DS 15';
+    src: url('CoreSansDS15ThinItalic.eot');
+    src: local('Core Sans DS 15 Thin Italic'), local('CoreSansDS15ThinItalic'),
+        url('CoreSansDS15ThinItalic.eot?#iefix') format('embedded-opentype'),
+        url('CoreSansDS15ThinItalic.woff2') format('woff2'),
+        url('CoreSansDS15ThinItalic.woff') format('woff'),
+        url('CoreSansDS15ThinItalic.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Core Sans DS 55';
+    src: url('CoreSansDS55Bold.eot');
+    src: local('Core Sans DS 55 Bold'), local('CoreSansDS55Bold'),
+        url('CoreSansDS55Bold.eot?#iefix') format('embedded-opentype'),
+        url('CoreSansDS55Bold.woff2') format('woff2'),
+        url('CoreSansDS55Bold.woff') format('woff'),
+        url('CoreSansDS55Bold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Core Sans DS 55';
+    src: url('CoreSansDS55BoldItalic.eot');
+    src: local('Core Sans DS 55 Bold Italic'), local('CoreSansDS55BoldItalic'),
+        url('CoreSansDS55BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('CoreSansDS55BoldItalic.woff2') format('woff2'),
+        url('CoreSansDS55BoldItalic.woff') format('woff'),
+        url('CoreSansDS55BoldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+}
+

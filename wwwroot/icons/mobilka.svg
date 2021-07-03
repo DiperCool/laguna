@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200" viewBox="-39.779 -51.779 255.558 255.558">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="176" height="152"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#clip-path)">
+    <image id="MobileButtonMob" x="66" y="54" width="43" height="42" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAhCAYAAAC803lsAAACrUlEQVRYhc2YPWgUQRiGn8SfXO4gh+Q4LCSuqEtQBhTvECEJyimKgkokmEYtTCtoIdHK1kJQCyvRwspGkGDjzzbJGYK3iGQxwopxiWCxbtBFUfEnyISNbmIuOxsy4lse79w8N/vN9717DUSy7Fp7sZDvAjYCX4FxPwgfV0pll3+gaRDHc/uA6/Nt5wfhnkqp/Eg3SqNl1xqBK/UMxUL+gm6IaZBctqkFyC3g6XA8d8iya7s1g2SyCr6OYiH/0PHci9pAgOUp/P2WXdv+P4DImjmgC6RBwRfXGl0gaeXoAplK4f/iB+EdXSA/FHwS9oYfhJsrpfKEDhBZqN8VfLYwzD4dADNSPZGMTgipRj8IVU5kg+O5qa55ahBZgAo+2X2P6wSZmb7DwI4E73ugTRjmJx0gM33kkoJ3FXBGB0Qc5C7wQsF/3rJrrdpAhGFO+UHYDbxK8DcXC/nLll1bttQgs+aM47kyJj4HViSsuw/0CMP8mLSB47nyuzqBp8IwP9TzzZo1wjBfAiqxcC/wxPFckQCxU2ZfGYmBt47nnq7n/WvyjoyNbs1lM1ZUnEn6Cdzyg/A2MCY3q5TKUwOD1dZ1bcWrQC8w9zFWX0/4Jw52dYwvCBL9ks2AvNItCjBxfQPeRNFz9QK+qjDMzvgH88YAYZiyTroV51BcK4H1CRBEOXhW7KybR4RhysfTkzImpFF/HCYxnY2MjZ7MZTPXgCZNQEN+EB5ViomO526Jmt5aTTDnlKKiMMxnwDbggSaQonJmFYY5CewD7mkAmUyb4BkYrDbnsk1HioX8fmCXwg1J0rAfhL2pQeJyPFeeqKz8s4tY/hk4JQzzJot4p6kH1A4cAw4DmxSWyJo7JAzzdxBfEpA5UM3RS1gh6rDy2ss2L/9zCYF3fhBOVErlP1kZ+AWzk8Hdbcfi4gAAAABJRU5ErkJggg=="/>
+  </g>
+</svg>
