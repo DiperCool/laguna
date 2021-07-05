@@ -5,6 +5,6 @@ namespace Interfaces
 {
     public interface IEmailService
     {
-        Task Send(string content, string guid);
+        Task Send(string content, int id);
     }
 }

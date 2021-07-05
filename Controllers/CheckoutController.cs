@@ -64,7 +64,7 @@ namespace Controllers
 
         private async Task SendEmail(string content, IEmailService email,Order order)
         {
-            await email.Send(content, order.Guid);
+            await email.Send(content, order.Id);
         }
     }
 }

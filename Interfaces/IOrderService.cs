@@ -8,5 +8,6 @@ namespace Interfaces
     {
         Task<Order> CreateOrder(Order order);
         Task<ViewOrdersModel> GetOrders(int page);
+        Task<Order> GetOrderById(int id);
     }
 }

@@ -7,8 +7,11 @@
         transition: all .5s ease;
         fill:#27292e;
     }
-    .button-product-active{
+    .button-product-plus-active{
         fill:green;
+    }
+    .button-product-minus-active{
+        fill:red;
     }
     
 </style>
@@ -16,9 +19,9 @@
 <div id="content">
     @foreach (var category in ViewBag.Categories)
            {
-               if(Model.Where(x=>x.Category.Name==category.Name).Count()==0) continue;
+               if(Model.Where(x=>x.Category.Id==category.Id).Count()==0) continue;
                <div class="name-category">@category.Name</div>
-                foreach (var item in Model.Where(x=>x.Category.Name==category.Name)){  
+                foreach (var item in Model.Where(x=>x.Category.Id==category.Id)){  
                     <div data-id="@item.Id" class="product d-flex flex-column m-auto">
                         <div>
                             <img class="img-product" src="@item.UrlPhoto">

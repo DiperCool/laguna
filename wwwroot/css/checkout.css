@@ -82,5 +82,21 @@ button{
 }
 
 .error{
-    border-color: #dc3545;;
+    border-color: #dc3545;
+    border-width:2px
+}
+@media screen and (max-width: 490px) {
+    h2{
+        font-size: 22px;
+    }
+
+
+}
+
+
+.thanks{
+    width: 100%;
+    background-color: #242424;
+    margin: 0 auto;
+    text-align: center;
 }

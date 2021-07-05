@@ -31,13 +31,20 @@ let checkLevel ={
 
 let state = {
     current: 0,
+    isOrderComplete:false,
     levels:[adressInformationLevel,contactsLevel,paymentsLevel,checkLevel]
 }
 
 
 
 let drawState=()=>{
-
+    if(state.isOrderComplete){
+        let content = document.querySelector(".levels");
+        content.classList.add("hide");
+        let thanks= document.querySelector(".thanks");
+        thanks.classList.remove("hide");
+        return;
+    }
     state.levels.forEach(item => {
         let level = document.querySelector("."+item.class);
         let levelHead  = level.querySelector(".preview");

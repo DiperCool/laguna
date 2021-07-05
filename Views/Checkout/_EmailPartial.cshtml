@@ -1,5 +1,10 @@
 @model Models.CheckoutInfoModel
 <div style="font-size: 20px; color: black ;">
+   <style>
+        table, th, td {
+        border: 1px solid black;
+        }
+    </style>
     <div>
         Номер телефона: @Model.Model.Phone
         @if(!string.IsNullOrEmpty(Model.Model.Name))
@@ -30,14 +35,28 @@
             </div>
         }
     </div>
-    <ul>
-        @foreach (var item in Model.Products)
-        {
-        <li>
-            @($"{item.Amount.ToString()}X") @item.Product.Name @(item.Amount * item.Product.Cost) грн.
-        </li>
-        }
-    </ul>
+    <div >
+        <table  cellspacing=”0” cellpadding=”0” width=”640” align=”center” border=”1” style="text-align: center;">
+            <tr>
+                <th>ID</th>
+                <th>Название продука</th>
+                <th>Количество</th>
+                <th>Цена продукта</th>
+                <th>Цена за все количество</th>
+            </tr>
+            @foreach (var item in Model.Products)
+            {
+                <tr>
+                    <td>@item.Product.Id</td>
+                    <td>@item.Product.Name</td>
+                    <td>@item.Amount</td>
+                    <td>@item.Product.Cost</td>
+                    <th>@(item.Product.Cost *item.Amount)</th>
+                </tr>
+            }
+        </table>
+        
+    </div>
     <div>
         @{double totalSum = Model.Products.Sum(x=>x.Product.Cost * x.Amount);}
         Заказ на сумму: @totalSum грн.

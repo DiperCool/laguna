@@ -9,18 +9,17 @@
             <table class="table-dark table">
                 <tr>
                     <th>ID</th>
-                    <th>Номер</th>
                     <th>Номер телефона</th>
                     <th>Тип доставки</th>
+                    <th>Подробней</th>
                 </tr>
                 @foreach (var item in Model.Orders)
                 {
                     <tr>
                         <td>@item.Id</td>
-                        <td>@item.Guid</td>
                         <td>@item.Phone</td>
                         <td>@(item.Delivery==Enums.DeliveryType.Delivery? "Доставка" : "Самовывоз")</td>
-                        
+                        <td><a href="~/adminpanelOrders/order?id=@item.Id">Подробней</a></td>
                     </tr>
                 }
             </table>

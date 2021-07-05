@@ -29,9 +29,10 @@ let setOnClick= ()=>{
             }
             currentTarget.setAttribute("disabled","true");
             let id = Number.parseInt(el.getAttribute("data-id"));
-            el.classList.add("button-product-active");
+            let classActive= el.classList.contains("plus") ? "button-product-plus-active": "button-product-minus-active"
+            el.classList.add(classActive);
             setTimeout(()=>{
-                el.classList.remove("button-product-active");
+                el.classList.remove(classActive);
             },1000)
             if(el.classList.contains("plus")){
                 await addProduct(id);

@@ -1,6 +1,11 @@
 const addressInfrormationValidationAndSave = ()=>{
     let checkout = getCheckout();
-    if(checkout.addressInfrormation.typeDelivery!=="Delivery") return true
+    if(checkout.addressInfrormation.typeDelivery!=="Delivery"){
+        checkout.addressInfrormation.deliveryAddress= "";
+        checkout.addressInfrormation.instructions= "";
+        setCheckout(checkout);
+        return true;
+    }
 
     let deliveryAddress = document.querySelector("#address").value;
     let instructions = document.querySelector("#instructions").value;
@@ -8,7 +13,6 @@ const addressInfrormationValidationAndSave = ()=>{
 
     checkout.addressInfrormation.deliveryAddress= deliveryAddress;
     checkout.addressInfrormation.instructions= instructions;
-    console.log(checkout.addressInfrormation);
     setCheckout(checkout);
     return true;
 }

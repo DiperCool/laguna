@@ -34,5 +34,10 @@ namespace Services
                 Page= new PageViewModel(count, page, pageSize)
             };
         }
+
+        public async Task<Order> GetOrderById(int id)
+        {
+            return await _context.Orders.Include(x=>x.Products).ThenInclude(x=>x.Product).Include(x=>x.Promocode).FirstOrDefaultAsync(x=>x.Id==id);
+        }
     }
 }

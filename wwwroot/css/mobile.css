@@ -10,9 +10,12 @@
     src: url(/font/CoreSansDS65Heavy.ttf);
 }
 
+body{
+   background-color: #d1dbde;
+}
+
 #content{
     color:black;
-    background-color: silver;
 }
 
 .product{

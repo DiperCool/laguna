@@ -1,0 +1,75 @@
+@model Entities.Order
+<!DOCTYPE html>
+<html>
+    <head>
+               
+    </head>
+    <body>
+       Номер телефона: @Model.Phone
+        @if(!string.IsNullOrEmpty(Model.Name))
+        {
+            <div>
+                Имя: @Model.Name
+            </div>
+        }
+        @if(@Model.Delivery==Enums.DeliveryType.Pickup){
+            <div>
+                Самовывоз
+            </div>
+        }else{
+            <div>
+                Доставка
+                @if(!string.IsNullOrEmpty(Model.DeliveryPlace))
+                {
+                    <div>
+                        Место куда доставлять: @Model.DeliveryPlace
+                    </div>
+                }
+                @if(!string.IsNullOrEmpty(Model.Instructions))
+                {
+                    <div>
+                        Инструкции: @Model.Instructions
+                    </div>
+                }
+            </div>
+        }
+    </div>
+
+    <div class="table-responsive">
+        <table class="table-dark table">
+            <tr>
+                <th>ID</th>
+                <th>Название продука</th>
+                <th>Количество</th>
+                <th>Цена продукта</th>
+                <th>Цена за все количество</th>
+            </tr>
+            @foreach (var item in Model.Products)
+            {
+                <tr>
+                    <td>@item.Product.Id</td>
+                    <td>@item.Product.Name</td>
+                    <td>@item.Amount</td>
+                    <td>@item.Product.Cost</td>
+                    <th>@(item.Product.Cost *item.Amount)</th>
+                </tr>
+            }
+        </table>
+        
+    </div>
+    <div>
+        @{double totalSum = Model.Products.Sum(x=>x.Product.Cost * x.Amount);}
+        Заказ на сумму: @totalSum грн.
+        <br>
+        @if(Model.Promocode!=null)
+        {
+            <div>
+                Был использован промокод: @Model.Promocode.Code
+            </div>
+            <div>
+                Цена со скидкой (@Model.Promocode.Discount%): @(totalSum-(totalSum/100 * Model.Promocode.Discount)) грн.
+            </div>
+        }
+    </div>
+    </body>
+</html>

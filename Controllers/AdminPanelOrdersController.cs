@@ -19,5 +19,11 @@ namespace Controllers
         {
             return View(await _orderService.GetOrders(page));
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Order(int id)
+        {
+            return View(await _orderService.GetOrderById(id));
+        }
     }
 }

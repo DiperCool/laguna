@@ -17,14 +17,14 @@ confirmButton.addEventListener("click", async()=>{
         {
             Name: contacts.name,
             Phone : contacts.phone,
-            DeliverPlace: addressInfo.deliveryAddress,
+            DeliveryPlace: addressInfo.deliveryAddress,
             Delivery: addressInfo.typeDelivery,
             Instructions: addressInfo.instructions,
             Products: products,
             PromocodesCode: promocode.code,
         }
     );
-    alert("Заказ успешно оформлен");
+    state.isOrderComplete=true;
+    drawState();
     clearBasket();
-    document.location.href="/";
 });

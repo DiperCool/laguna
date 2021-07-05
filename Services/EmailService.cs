@@ -21,13 +21,13 @@ namespace Services
             _productService = productService;
         }
 
-        public async Task Send(string content, string guid)
+        public async Task Send(string content, int id)
         {
             var emailMessage = new MimeMessage();
  
             emailMessage.From.Add(new MailboxAddress("Lagun backend",_configuration["MailKit:email"]));
             emailMessage.To.Add(new MailboxAddress("", "lagunareceiver@gmail.com"));
-            emailMessage.Subject = $"Новый заказ №{guid}";
+            emailMessage.Subject = $"Новый заказ №{id}";
             emailMessage.Body = new TextPart(MimeKit.Text.TextFormat.Html)
             {
                 Text = content

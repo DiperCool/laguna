@@ -77,7 +77,7 @@ namespace Services
 
         public async Task<List<Product>> GetProducts()
         {
-            return await _context.Products.AsNoTracking().Include(x=>x.Category).ToListAsync();
+            return await _context.Products.AsNoTracking().OrderBy(x=>x.Id).Include(x=>x.Category).ToListAsync();
         }
 
         public async Task<List<Product>> GetProductsByCategory(int idCategory)

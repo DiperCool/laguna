@@ -11,7 +11,6 @@ using Entities;
 using Wangkanai.Detection.Services;
 using Microsoft.Extensions.Caching.Memory;
 using Laguna.Tools;
-
 namespace Laguna.Controllers
 {
     public class HomeController : Controller
@@ -34,11 +33,7 @@ namespace Laguna.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            var products = await _cache.GetOrCreate(CacheKeys.Products, async(entry) =>
-            {
-                entry.SlidingExpiration = TimeSpan.FromMinutes(3);
-                return await _prodService.GetProducts();
-            });
+            var products = await GetProducts();
             if(_detectionService.Device.Type==Wangkanai.Detection.Models.Device.Mobile)
             {
                 return View("~/Views/Android/Home.cshtml", products);
@@ -48,9 +43,24 @@ namespace Laguna.Controllers
         [Route("/product/{category}")]
         public async Task<IActionResult> Index(string category)
         {
-            Category cat =await _catService.GetCategoryByName(category);
-            if(cat==null) return RedirectToAction("Error404","Error");
-            return View(await _prodService.GetProductsByCategory(cat.Id));
+            List<Product> products = await GetProducts();
+            Category cat = await _catService.GetCategoryByName(category);
+            if (cat == null) return RedirectToAction("Error404", "Error");
+            var products2 = products.Where(x => x.Category.Id == cat.Id).ToList();
+            if (_detectionService.Device.Type == Wangkanai.Detection.Models.Device.Mobile)
+            {
+                return View("~/Views/Android/Home.cshtml", products2);
+            }
+            return View(products2);
+        }
+
+        private async Task<List<Product>> GetProducts()
+        {
+            return await _cache.GetOrCreate(CacheKeys.Products, async (entry) =>
+            {
+                entry.SlidingExpiration = TimeSpan.FromMinutes(3);
+                return await _prodService.GetProducts();
+            });
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
