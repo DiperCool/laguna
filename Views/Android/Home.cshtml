@@ -1,4 +1,6 @@
 @model List<Entities.Product>
+
+
 <style>
     .spacing>div{
         margin: 0 5px;
@@ -19,63 +21,132 @@
 <div id="content">
     @foreach (var category in ViewBag.Categories)
            {
-               if(Model.Where(x=>x.Category.Id==category.Id).Count()==0) continue;
-               <div class="name-category">@category.Name</div>
-                foreach (var item in Model.Where(x=>x.Category.Id==category.Id)){  
-                    <div data-id="@item.Id" class="product d-flex flex-column m-auto">
-                        <div>
-                            <img class="img-product" src="@item.UrlPhoto">
-                        </div>
-                        <div class="text-color product-name">
-                            @item.Name
-                        </div>
-                        <div class="d-flex" class="text-color">
-                            <div class="product-description">
-                                @item.Description
+               <div class="section">
+                   @if(Model.Where(x=>x.Category.Id==category.Id).Count()==0) continue;
+                   <div class="name-category">@category.Name</div>
+                    @foreach (var item in Model.Where(x=>x.Category.Id==category.Id)){  
+                        <div data-id="@item.Id" class="product d-flex flex-column m-auto">
+                            <div>
+                                <img class="img-product" src="@item.UrlPhoto">
                             </div>
-                            <div class="ml-auto spacing product-excerpt">
-                                <div>
-                                    @item.Excerpt гр.
+                            <div class="text-color product-name">
+                                @item.Name
+                            </div>
+                            <div class="d-flex" class="text-color">
+                                <div class="product-description">
+                                    @item.Description
+                                </div>
+                                <div class="ml-auto spacing product-excerpt">
+                                    <div>
+                                        @item.Excerpt гр.
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="d-flex" class="text-color">
-                            <div class="d-flex align-items-center" >
-                                <div class="product-cost">
-                                @item.Cost
+                            <div class="d-flex" class="text-color">
+                                <div class="d-flex align-items-center" >
+                                    <div class="product-cost">
+                                    @item.Cost
+                                    </div>
+                                    <div class="d-flex justify-content-around">
+                                        <svg xmlns="/icons/UAH.svg" style="width: 24px ; height:16px; fill:black;">
+                                            <use  style="fill: black;" xlink:href="/icons/icon.svg#grn"></use>
+                                        </svg>
+                                        
+                                    </div>
                                 </div>
-                                <div class="d-flex justify-content-around">
-                                    <svg xmlns="/icons/UAH.svg" style="width: 24px ; height:16px; fill:black;">
-                                        <use  style="fill: black;" xlink:href="/icons/icon.svg#grn"></use>
-                                    </svg>
-                                    
-                                </div>
-                            </div>
 
-                            <div class="d-flex align-items-center ml-auto spacing">
-                                <div class="minus button-product" data-id="@item.Id">
-                                    <svg style="width: 30px; height:30px;">
-                                        <use xlink:href="/icons/icon.svg#minus">
-                                            
-                                        </use>
-                                    </svg>
-                                </div>
-                                <div class="amount" data-id="@item.Id">
-                                    0
-                                </div>
-                                <div class="plus button-product" data-id="@item.Id">
-                                    <svg style="width: 30px; height:30px;">
-                                        <use xlink:href="/icons/icon.svg#plus">
-                                            
-                                        </use>
-                                    </svg>
+                                <div class="d-flex align-items-center ml-auto spacing">
+                                    <div class="minus button-product" data-id="@item.Id">
+                                        <svg style="width: 30px; height:30px;">
+                                            <use xlink:href="/icons/icon.svg#minus">
+                                                
+                                            </use>
+                                        </svg>
+                                    </div>
+                                    <div class="amount" data-id="@item.Id">
+                                        0
+                                    </div>
+                                    <div class="plus button-product" data-id="@item.Id">
+                                        <svg style="width: 30px; height:30px;">
+                                            <use xlink:href="/icons/icon.svg#plus">
+                                                
+                                            </use>
+                                        </svg>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <br>
-                }
+                        <br>
+                    }
+               </div>
            }
 </div>
-
 <script src="~/js/Android/Home.js" asp-append-version="true"></script>
+<script src="/lib/waypoints/lib/noframework.waypoints.min.js"></script>
+
+<script type="text/javascript">
+
+    let activeIndex = 0;
+    let nav = document.querySelectorAll(".item-swiper-3");
+    let clearActive=()=>{
+        nav.forEach((item)=>{
+            item.classList.remove("slide-active");
+        })
+    }
+    let setActive = (name)=>{
+        clearActive();
+        for(let i=0; i<nav.length; i++){
+            if(nav[i].querySelector("a").innerHTML==name && i+1<nav.length){
+                nav[i+1].classList.add("slide-active");
+                swiper3.slideNext();
+                activeIndex=i+1;
+            }
+        }
+    }
+
+    let setActivePrev=(name)=>{
+        clearActive();
+        for(let i=0; i<nav.length; i++){
+            if(nav[i].querySelector("a").innerHTML==name){
+                nav[i].classList.add("slide-active");
+                swiper3.slidePrev();
+                activeIndex=i;
+            }
+        }
+
+
+    }
+</script>
+
+<script type="text/javascript">
+    
+
+
+    $(document).ready(()=>{
+        let url = window.location.href;
+        let loc = new URL(url);
+        let name = decodeURI(loc.pathname.split("/")[2]);
+        if(loc.pathname!="/" && loc.pathname.includes("/product/") && name){
+            return;
+
+        };
+        nav[0].classList.add("slide-active");
+        let sections = document.querySelectorAll(".section");
+        sections.forEach(item=>{
+            new Waypoint({
+              element: item,
+              handler: function(direction) {
+                let name = item.querySelector(".name-category").innerHTML;
+                if(direction=="up"){
+                    setActivePrev(name);
+                    return;
+                }
+                setActive(name);
+              },
+              offset:()=> -item.offsetHeight+100
+            })
+        })
+    })
+
+
+</script>

@@ -10,13 +10,13 @@
             <input type="text" class="form-control" name="Name" placeholder="Введите название" value="@Model.Name">
             <span asp-validation-for="Name"></span>
             <br>
-            <input value="@Model.Cost" type="number" class="form-control" name="Cost" step="0.01" placeholder="Введите цену">
+            <input value="@Model.Cost" type="number" class="form-control" name="Cost" placeholder="Введите цену">
             <span asp-validation-for="Cost"></span>
             <br>
             <input value="@Model.Description" type="text" class="form-control" name="Description" placeholder="Введите описание">
             <span asp-validation-for="Description"></span>
             <br>
-            <input value="@Model.Excerpt" type="number" class="form-control" name="Excerpt" step="0.01" placeholder="Введите вес">
+            <input value="@Model.Excerpt" type="number" class="form-control" name="Excerpt" placeholder="Введите вес">
             <span asp-validation-for="Excerpt"></span>
             <br>
             <input type="file" name="File">

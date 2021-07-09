@@ -34,6 +34,7 @@ namespace Laguna.Controllers
         public async Task<IActionResult> Index()
         {
             var products = await GetProducts();
+            //_detectionService.Device.Type==Wangkanai.Detection.Models.Device.Mobile)
             if(_detectionService.Device.Type==Wangkanai.Detection.Models.Device.Mobile)
             {
                 return View("~/Views/Android/Home.cshtml", products);

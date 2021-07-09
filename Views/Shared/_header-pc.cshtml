@@ -96,9 +96,9 @@
                         <div class="back button-navigation" style="transform: rotate(180deg);">
                             <img src="~/icons/arrow-right.svg">
                         </div>
-                        <div class="d-flex align-items-center carousel swiper-container"style="width:95%">
-                                <div class="swiper-wrapper" >
+                        <div class="d-flex align-items-center carousel swiper-container swiper-1"style="width:95%">
                                     @if(!ViewBag.IsAdmin){
+                                    <div class="swiper-wrapper">
                                         @foreach (var item in ViewBag.Categories)
                                         {
                                             <div class="swiper-slide d-flex justify-content-center" >
@@ -110,15 +110,18 @@
                                                 </div>
                                             </div>
                                         }
+                                        </div>
                                     }else{
+                                    <div class="swiper-wrapper">
                                         <div class="swiper-slide"> <a href="~/AdminPanelProduct/Products">Список продуктов</a></div>
                                         <div class="swiper-slide"><a href="~/AdminPanelProduct/createproduct">Создать продукт</a></div>
                                         <div class="swiper-slide"><a href="~/AdminPanel/category">Управление категориями</a></div>
                                         <div class="swiper-slide"><a href="~/AdminPanelOrders/orders">Заказы</a></div>
                                         <div class="swiper-slide"><a href="~/AdminPanelPromocode/GetPromocodes">Список промокодов</a></div>
                                         <div class="swiper-slide"><a href="~/AdminPanelPromocode/CreatePromocode">Создать промокод</a></div>
+                                        </div>
                                     }
-                                </div>
+                                
                         </div>
                         <div class="next button-navigation">
                             <img src="~/icons/arrow-right.svg">
@@ -129,11 +132,11 @@
         </div>
     </div>
     <script>
-
-        const swiper = new Swiper('.swiper-container', {
+        $(document).ready(()=>{
+        const swiper = new Swiper('.swiper-1', {
             // Optional parameters
-                slidesPerView:5,
-                spaceBetween:20,
+                slidesPerView:"auto",
+                spaceBetween:60,
                 direction: 'horizontal',
                 navigation: {
                     nextEl: '.next',
@@ -142,21 +145,23 @@
 
                 breakpoints:{
                     930:{
-                        slidesPerView:5,
-                        spaceBetween:20
+                        slidesPerView:"auto",
+                        spaceBetween:70
                     },
                     
 
                     1320:{
-                        slidesPerView:8,
-                        spaceBetween:20,
+                        slidesPerView:"auto",
+                        spaceBetween:90,
                     },
                     1500:{
-                        slidesPerView:10,
-                        spaceBetween:20,
+                        slidesPerView:"auto",
+                        spaceBetween:100,
                     }
                 }
             });
+        });
+    
     
    
     </script>

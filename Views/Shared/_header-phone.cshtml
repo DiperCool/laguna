@@ -23,17 +23,18 @@
         -ms-flex-pack: center;
         -webkit-justify-content: center;
         justify-content: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        -webkit-align-items: center;
-        align-items: center;
+        width:auto;
+        height:auto;
+
       }
-      .slide-active{
-          
-        box-sizing: border-box;
-        border: 1.5px solid green;
+      .slide-active{          
+        border:1px green solid;
         border-radius: 50px;
-	
+        border-sizing:border-box;
+        padding:0 5px	
+      }
+      item-swiper-3{
+      padding:0 5px
       }
 
       .basket-phone{
@@ -52,6 +53,7 @@
                     
 
       }
+
       .red-circle{
         position: absolute;
         border-radius: 50%;
@@ -72,6 +74,8 @@
       .logo-mob{
           width: 78px;
           height: 78px;
+      }
+      .swiper-wrapper{
       }
 
 
@@ -123,18 +127,20 @@
     </div>
 <div>
         <div class="nav-mobile-fixed">
-            <div class="d-flex align-items-center ">
-                <div class="d-flex align-items-center carousel swiper-container swiper-3  p-2 ">
+           
+                <div class="carousel swiper-container swiper-3  p-2 ">
                     @if(!ViewBag.IsAdmin){
+                    <div class="swiper-wrapper " >
                         @foreach (var item in ViewBag.Categories)
                         {
-                            <div class="swiper-wrapper" >
-                                <div class="item-swiper-3 swiper-slide d-flex justify-content-center swiper-slide-3" >
-                                
-                                        <a class="link-category" style="font-size: 15px" href="~/product/@item.Name">@item.Name</a>
+                                <div class="item-swiper-3 swiper-slide swiper-slide-3" >
+                                    <div style="box-sizing: border-box;">
+                                    <a class="link-category " style="font-size: 15px;white-space:nowrap" href="~/product/@item.Name">@item.Name</a>
+                                    </div>
                                 </div>
-                            </div>
+                           
                         }
+                    </div>
                     }else{
                         <div class="swiper-wrapper textsize">
                             <div class="swiper-slide"> <a href="~/AdminPanelProduct/Products">Список продуктов</a></div>
@@ -146,7 +152,7 @@
                         </div>
                     }
                         
-                </div>
+                
 
             </div>
         </div>
@@ -183,9 +189,10 @@
         </div>
         <div class="d-flex align-items-center carousel swiper-container swiper-2" style="width:80%">        
             @if(!ViewBag.IsAdmin){
+            <div class="swiper-wrapper" >   
                 @foreach (var item in ViewBag.Categories)
                 {
-                    <div class="swiper-wrapper" >
+                
                         <div class="swiper-slide d-flex justify-content-center" >
                             <div> 
                                 <img src="@item.IconUrl" width="40px" height="40px">
@@ -194,8 +201,9 @@
                                 <a class="link-category" style="font-size:12px" href="~/product/@item.Name">@item.Name</a>
                             </div>
                         </div>
-                    </div>
+                    
                 }
+                </div>
             }else{
                 <div class="swiper-wrapper textsize" >
                     <div class="swiper-slide"> <a href="~/AdminPanelProduct/Products">Список продуктов</a></div>
@@ -219,52 +227,39 @@
 
 
 <script>
-    const swiper2 = new Swiper('.swiper-2', {
+         const swiper2 = new Swiper('.swiper-2', {
             // Optional parameters
-                slidesPerView:4,
-                spaceBetween:5,
+                slidesPerView:"auto",
+                spaceBetween:25,
                 direction: 'horizontal',
                 navigation: {
                     nextEl: '.next-2',
                     prevEl: '.back-2',
                 },
-                observer: true,
-                observeParents: true,
-
-                breakpoints: {
-                // when window width is >= 320px
-                    330: {
-                    slidesPerView: 5,
-                    spaceBetween:15,
-                    },
-                    // when window width is >= 480px
-                    480: {
-                    slidesPerView: 6,
-                    spaceBetween: 15
-                    },
-                    // when window width is >= 640px
-                    640: {
-                    slidesPerView: 6,
-                    spaceBetween: 30
-                    }
-                }
+                
 
             });
 
             const swiper3 = new Swiper('.swiper-3', {
                 // Optional parameters
-                    slidesPerView:5,
+                    slidesPerView:"auto",
                     direction: 'horizontal',
-                    spaceBetween:10,
+                    spaceBetween:50,
                     breakpoints:{
+                        380:{
+                            slidesPerView:"auto",
+                            spaceBetween:50
+                        },
                         470:{
-                            spaceBetween:10,
-                            slidesPerView:6
+                            spaceBetween:30,
+                            slidesPerView:"auto"
                         }
-                    }
+                    },
 
 
-            });
+                }
+
+            );
             let url = window.location.href;
             let loc = new URL(url);
             let name = decodeURI(loc.pathname.split("/")[2]);

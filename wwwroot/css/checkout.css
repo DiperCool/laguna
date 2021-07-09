@@ -100,3 +100,14 @@ button{
     margin: 0 auto;
     text-align: center;
 }
+
+@media screen and (max-width: 380px) {
+    .change-button{
+        font-size: 15px;
+    }
+    #content{
+        font-size: 15px;
+    }
+
+
+}
