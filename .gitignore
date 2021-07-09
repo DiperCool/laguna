@@ -234,4 +234,4 @@ _Pvt_Extensions
 .fake/
 
 wwwroot/Photos
-./appsettings.json
+appsettings.json
