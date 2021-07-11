@@ -28,7 +28,7 @@ namespace Services
             if(model.File!=null)
             {
                 SaveFile file = new SaveFile();
-                path = await file.Save(model.File, _appEnvironment.WebRootPath);
+                path = await file.SaveAndResize(model.File, _appEnvironment.WebRootPath);
             }
             else if(model.UrlPhoto!=null)
             {
@@ -92,7 +92,7 @@ namespace Services
             if(model.File!=null)
             {
                 SaveFile file = new SaveFile();
-                path = await file.Save(model.File, _appEnvironment.WebRootPath);
+                path = await file.SaveAndResize(model.File, _appEnvironment.WebRootPath);
             }
             else if(model.UrlPhoto!=null)
             {
