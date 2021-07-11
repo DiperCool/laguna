@@ -37,9 +37,11 @@
                                     @item.Description
                                 </div>
                                 <div class="ml-auto spacing product-excerpt">
-                                    <div>
-                                        @item.Excerpt гр.
-                                    </div>
+                                    @if(item.Excerpt!=null){
+                                        <div>
+                                            @item.Excerpt гр.
+                                        </div>
+                                    }
                                 </div>
                             </div>
                             <div class="d-flex" class="text-color">

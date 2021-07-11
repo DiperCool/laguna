@@ -7,7 +7,11 @@
     font-family: "Bookman Old Style" ;
     src: url(/font/Bookman.ttf);
 }
-
+@font-face{
+        font-family: "CoreSans75Black";
+        src: url(/font/CoreSansDS75Black.ttf);
+        
+    }
 @font-face{
     font-family: "Bookman Old Style Bold" ;
     src: url(/font/BOOKOSB.TTF);

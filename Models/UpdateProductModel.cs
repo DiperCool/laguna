@@ -13,7 +13,7 @@ namespace Models
         public double Cost { get; set; }
         [Required]
         public string Description { get; set; }
-        public double Excerpt { get; set; }
+        public double? Excerpt { get; set; }
         public string UrlPhoto { get; set; }
         
         public IFormFile File { get; set; }

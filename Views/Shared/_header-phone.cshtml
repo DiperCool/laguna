@@ -79,6 +79,12 @@
       }
 
 
+    .category-header{
+        font-family: "CoreSans75Black";
+        text-transform: uppercase;
+    }
+
+
 </style>
 <div class="header-phone">
     <div class="header-phone-info d-flex flex-column">
@@ -91,9 +97,11 @@
             <div class="d-flex  align-items-center justify-content-around" style="flex-shrink:0">
                 <div>
                     <div>
+                        <a href="tel:(068)285-42-04">
                         <svg style="width: 40px; height:38px">
                             <use xlink:href="/icons/icon.svg#logo-phone"></use>
                         </svg>
+                        </a>
                     </div>
                 </div>
                 <div>
@@ -133,7 +141,7 @@
                     <div class="swiper-wrapper " >
                         @foreach (var item in ViewBag.Categories)
                         {
-                                <div class="item-swiper-3 swiper-slide swiper-slide-3" >
+                                <div class="item-swiper-3 swiper-slide swiper-slide-3 category-header" >
                                     <div style="box-sizing: border-box;">
                                     <a class="link-category " style="font-size: 15px;white-space:nowrap" href="~/product/@item.Name">@item.Name</a>
                                     </div>
