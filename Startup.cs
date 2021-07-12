@@ -16,7 +16,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Middlewares;
 using Services;
-
+using Microsoft.AspNetCore.HttpOverrides;
 namespace Laguna
 {
     public class Startup
@@ -74,6 +74,11 @@ namespace Laguna
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+            
+            app.UseForwardedHeaders(new ForwardedHeadersOptions
+            {
+                ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+            });
             app.UseMiddleware<Error404Middleware>();
             app.UseSession();
             app.UseHttpsRedirection();
