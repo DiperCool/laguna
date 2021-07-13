@@ -23,10 +23,15 @@ namespace Services
             _appEnvironment = appEnvironment;
         }
 
-        public async Task ChangeName(string name, int id)
+        public async Task ChangeCategory(ChangeCategoryModel model)
         {
-            Category category = await GetCatagory(id);
-            category.Name = name;
+            Category category = await GetCatagory(model.Id);
+            category.Name = model.Name;
+            if(model.File!=null){
+                SaveFile file = new SaveFile();
+                string path = await file.Save(model.File, _appEnvironment.WebRootPath);
+                category.IconUrl=path;
+            }
             _context.Categories.Update(category);
             await _context.SaveChangesAsync();
 

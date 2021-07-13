@@ -8,7 +8,7 @@ namespace Interfaces
     public interface ICategoryService
     {
         Task<Category> CreateCategory(CreateCategoryModel model);
-        Task ChangeName(string name, int id);
+        Task ChangeCategory(ChangeCategoryModel model);
         Task Delete(int id);
         Task<List<Category>> GetCategories();
         Task<Category> GetFirstCategory();

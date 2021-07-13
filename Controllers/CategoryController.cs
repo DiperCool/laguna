@@ -24,10 +24,10 @@ namespace Controllers
         } 
     
         [HttpPost]
-        public async Task<IActionResult> ChangeCategoriesName([FromBody] ChangeCategoriesNameModel model)
+        public async Task<IActionResult> ChangeCategory([FromForm] ChangeCategoryModel model)
         {   
             if(!ModelState.IsValid) return BadRequest(model);
-            await _service.ChangeName(model.Name, model.Id);
+            await _service.ChangeCategory(model);
             return Ok();
         }
       

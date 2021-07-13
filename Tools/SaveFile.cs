@@ -9,7 +9,7 @@ namespace Tools
 {
     public class SaveFile
     {
-        public async Task<string> SaveAndResize(IFormFile file, string WebRootPath)
+        public string SaveAndResize(IFormFile file, string WebRootPath)
         {
             string ext = Path.GetExtension(file.FileName);
             string shortPath = "/Photos/" + Guid.NewGuid() + ".png";

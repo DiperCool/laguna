@@ -25,7 +25,11 @@
                             <div class="name">
                                 @item.Name
                             </div>
-                            <div class="excerpt">@item.Excerpt гр</div>
+                            <div class="excerpt">
+                            @if(item.Excerpt!=null){
+                                <div>@item.Excerpt гр</div>
+                            }
+                            </div>
                         </div>
                         <div class="col-4 d-flex align-items-center justify-content-end" > 
                             <span class="cost">@item.Cost грн.</span>
