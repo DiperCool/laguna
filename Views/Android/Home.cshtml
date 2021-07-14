@@ -26,8 +26,11 @@
                    <div class="name-category">@category.Name</div>
                     @foreach (var item in Model.Where(x=>x.Category.Id==category.Id)){  
                         <div data-id="@item.Id" class="product d-flex flex-column m-auto">
-                            <div>
+                            <div class="container-img-product">
                                 <img class="img-product" src="@item.UrlPhoto">
+                                <div class="middle">
+                                    <button class="img-product-button btn btn-success" data-id="@item.Id">ДОБАВИТЬ В КОРЗИНУ</button>
+                                </div>
                             </div>
                             <div class="text-color product-name">
                                 @item.Name
@@ -85,6 +88,8 @@
 </div>
 <script src="~/js/Android/Home.js" asp-append-version="true"></script>
 <script src="/lib/waypoints/lib/noframework.waypoints.min.js"></script>
+
+
 
 <script type="text/javascript">
 

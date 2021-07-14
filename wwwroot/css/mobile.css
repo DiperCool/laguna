@@ -4,7 +4,9 @@
     src: url(/font/CoreSansDS75Black.ttf);
     
 }
-
+.disable-hover{
+    pointer-events: none;
+}
 @font-face {
     font-family: "CoreSansDS65Heavy";
     src: url(/font/CoreSansDS65Heavy.ttf);
@@ -28,9 +30,12 @@ body{
 }
 
 .img-product{
+    opacity: 1;
     width: 100%;
     border-radius: 30px;
     height: 250px;
+    transition: .5s ease;
+    backface-visibility: hidden;
 }
 .name-category{
     margin-left: 5%;
@@ -69,3 +74,53 @@ body{
     color: #73808d;
 
 }
+
+
+.container-img-product{
+    border-radius: 30px;
+    transition: .5s ease;
+    position: relative;
+}
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+  visibility: hidden;
+}
+
+.img-product-button{
+    display: none;
+    opacity: 0;
+}
+.container-img-product-active{
+    background-color:rgba(0,0,0,.8);
+}
+.img-product-active {
+  opacity: 0.3;
+}
+
+ .middle-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.img-product-button-active{
+    display: block;
+    opacity: .85;
+
+}
+.btn{
+    font-family: "CoreSansBold"
+}
+.btn:focus {
+  outline: none !important;
+}
+.btn:active{
+    outline: none !important;
+}
+
