@@ -9,7 +9,20 @@
     </head>
     <body>
         <div id="content">
-        
+           @if(Model.Count==0){
+            <div >
+            <p style="font-family: CoreSansBold;padding: 5px;">
+            Товары добавляются на сайт. Звоните, на <a style="text-decoration:underline;" href="tel:(068)285-42-04">+38(068)285-42-04</a> если хотите проконсультироватся и узнать какие есть товары в наличии
+            </p>
+            <div style="padding: 20px;">
+                <a href="/">
+                    <button class="btn btn-outline-danger mx-auto d-block" style="width:30%">
+                        Вернуться
+                    </button>
+                </a>
+            </div>
+        </div>
+           }
            @foreach (var category in ViewBag.Categories)
            {
                if(Model.Where(x=>x.Category.Id==category.Id).Count()==0) continue;
@@ -61,7 +74,7 @@
                         <h1 class="name-current" style="font-weight: bold;"></div>
                         <div class="cost-current"></div>
                         <div class="excerpt-current"></div>
-                        <div class="description-current"></div>
+                        <div class="description-current" style="white-space:break-word;"></div>
                         <button id="button-current-product" class="btn btn-outline-danger">Додати до кошика</button>
 
                     </div>
