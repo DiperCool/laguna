@@ -41,7 +41,7 @@ button{
 }
 
 .hide{
-    display: none;
+    display: none!important;
 }
 
 .content-preview{
@@ -70,6 +70,10 @@ button{
 }
 
 #products{
+    font-family: "Bookman Old Style";
+}
+
+.boxes{
     font-family: "Bookman Old Style";
 }
 .cost{

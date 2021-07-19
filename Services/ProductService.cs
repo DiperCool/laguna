@@ -8,7 +8,7 @@ using Models;
 using Tools;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
-
+using Enums;
 namespace Services
 {
     public class ProductService : IProductService
@@ -38,7 +38,7 @@ namespace Services
                 throw new FileException("File not found");
             }
 
-            Product product = new Product{ Name=model.Name, Excerpt= model.Excerpt, Description= model.Description, Cost= model.Cost, CategoryId= model.IdCategory, UrlPhoto= path };
+            Product product = new Product{ WrapperType= model.WrapperType, Name=model.Name, Excerpt= model.Excerpt, Description= model.Description, Cost= model.Cost, CategoryId= model.IdCategory, UrlPhoto= path };
             _context.Products.Add(product);
             await _context.SaveChangesAsync();
             return product;
@@ -101,7 +101,7 @@ namespace Services
             else{
                 throw new FileException("File not found");
             }
-            Product product = new Product{ Id=model.Id, Name=model.Name, Excerpt= model.Excerpt, Description= model.Description, Cost= model.Cost, CategoryId= model.IdCategory, UrlPhoto= path };
+            Product product = new Product{WrapperType= model.WrapperType, Id=model.Id, Name=model.Name, Excerpt= model.Excerpt, Description= model.Description, Cost= model.Cost, CategoryId= model.IdCategory, UrlPhoto= path };
             _context.Products.Update(product);
             await _context.SaveChangesAsync();
             return product;

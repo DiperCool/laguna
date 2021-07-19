@@ -1,4 +1,5 @@
 @model Models.CreateProductModel
+@using Enums
 <!DOCTYPE html>
 <html>
     <head>
@@ -22,6 +23,9 @@
             <input type="file" name="File">
             <input type="text" name="UrlPhoto" placeholder="Введите url">
             <br>
+            <select asp-for="WrapperType" asp-items="@Html.GetEnumSelectList<WrapperType>()" class="form-control">
+                
+            </select>
             <br>
             <select name="IdCategory" id="select" class="form-control select-category">
                 <option value="0">--Выберите--</option>

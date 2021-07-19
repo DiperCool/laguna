@@ -1,4 +1,5 @@
 @model Models.UpdateProductModel
+@using Enums
 <!DOCTYPE html>
 <html>
     <head>
@@ -23,6 +24,9 @@
             <input value="@Model.UrlPhoto" type="text" name="UrlPhoto" placeholder="Введите url">
             @Html.Hidden("Id", Model.Id)
             <br>
+            <select asp-for="WrapperType" asp-items="@Html.GetEnumSelectList<WrapperType>()" class="form-control">
+                
+            </select>
             <br>
             <select name="IdCategory" class="form-control"autocomplete="off">
                 <option value="0">--Выберите--</option>

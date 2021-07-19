@@ -14,11 +14,10 @@ namespace Controllers
         {
             _config = config;
         }
-        [UserHaveSecretFilterAtrribute]
         [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            return RedirectToAction("Login");
         }
         [UserHaveSecretFilterAtrribute]
         [HttpGet]
@@ -47,6 +46,5 @@ namespace Controllers
             HttpContext.Session.SetString("SecretCodeAdminPanel", _config.GetValue<string>("AdminPanel:SecretCode"));
             return Redirect("~/AdminPanelProduct/Products");
         }
-
     }
 }

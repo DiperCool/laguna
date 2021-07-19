@@ -6,9 +6,9 @@ if(promocode.code && promocode.isAvailable){
     let payTos= document.querySelectorAll(".to-pay");
     payToProm.forEach(item=> {
         item.classList.remove("hide");
-        let count= countBasket();
+        let count= countBasket() + calculateBoxes();
         let span = item.querySelector(".to-pay-promo-span");
-        span.innerHTML = count-Math.round(countBasket()/100 * getPromocode().discount);
+        span.innerHTML = count-Math.round(count/100 * getPromocode().discount);
     });
 
     payTos.forEach(item=>{

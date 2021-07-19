@@ -1,5 +1,5 @@
 using System.Text.Json.Serialization;
-
+using Enums;
 namespace Entities
 {
     public class Product
@@ -11,6 +11,7 @@ namespace Entities
         public double? Excerpt { get; set; }
         public string UrlPhoto { get; set; }
         public int CategoryId { get; set; }
+        public WrapperType WrapperType { get; set; }
         [JsonIgnore]
         public Category Category { get; set; }
     }

@@ -1,4 +1,5 @@
 @model Models.CheckoutInfoModel
+@using Enums
 <div style="font-size: 20px; color: black ;">
    <style>
         table, th, td {
@@ -58,7 +59,15 @@
         
     </div>
     <div>
-        @{double totalSum = Model.Products.Sum(x=>x.Product.Cost * x.Amount);}
+        <div>
+            Коробка (@Model.Products.Where(x=>x.Product.WrapperType ==WrapperType.Box).Sum(x=>x.Amount)): @(Model.Products.Where(x=>x.Product.WrapperType ==WrapperType.Box).Sum(x=>x.Amount)*15) грн
+        </div>
+        <div>
+            Контейнер (@Model.Products.Where(x=>x.Product.WrapperType ==WrapperType.Container).Sum(x=>x.Amount)): @(Model.Products.Where(x=>x.Product.WrapperType ==WrapperType.Container).Sum(x=>x.Amount)*15) грн
+        </div>
+    </div>
+    <div>
+        @{double totalSum = Model.Products.Sum(x=>x.Product.Cost * x.Amount)+ Model.Products.Where(x=>x.Product.WrapperType !=WrapperType.None).Sum(x=>x.Amount)*15 ;}
         Заказ на сумму: @totalSum грн.
         <br>
         @if(Model.Promocode!=null)

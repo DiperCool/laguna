@@ -26,6 +26,7 @@
                     <th>Цена</th>
                     <th>Описание</th>
                     <th>Вес</th>
+                    <th>Упаковка</th>
                     <th>Изменить</th>
                     <th>Удалить</th>
                 </tr>
@@ -38,6 +39,7 @@
                         <td>@item.Cost</td>
                         <td>@item.Description</td>
                         <td>@item.Excerpt</td>
+                        <td>@item.WrapperType</td>
                         <td><a href="/adminpanelproduct/UpdateProduct?id=@item.Id">Изменить</a></td>
                         <td><a href="/adminpanelproduct/deleteProduct?id=@item.Id">Удалить</a></td>
                     </tr>

@@ -1,6 +1,6 @@
 using Entities;
 using Microsoft.EntityFrameworkCore;
-
+using Enums;
 namespace Db
 {
     public class Context : DbContext
@@ -12,7 +12,9 @@ namespace Db
         public DbSet<Promocode> Promocodes { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            
+            modelBuilder.Entity<Product>()
+                .Property(x=>x.WrapperType)
+                .HasDefaultValue(WrapperType.Box);
         }
     }
 }
