@@ -15,7 +15,7 @@ namespace Tools
             string shortPath = "/Photos/" + Guid.NewGuid() + ".jpeg";
             string path = WebRootPath + shortPath;
             var image = Image.Load(file.OpenReadStream());
-            image.Mutate(x=>x.Resize(450,450, KnownResamplers.Lanczos3));
+            image.Mutate(x=>x.Resize(450,450));
             image.Save(path, new JpegEncoder());
             return shortPath;
         }
