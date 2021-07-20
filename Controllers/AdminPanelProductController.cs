@@ -87,7 +87,6 @@ namespace Controllers
         [HttpGet]
         public IActionResult DeleteProduct(int id)
         {
-            Console.WriteLine("i work!!");
             return View(new DeleteProductModel{Id=id});
         }
 
