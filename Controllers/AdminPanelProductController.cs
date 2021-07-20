@@ -89,5 +89,16 @@ namespace Controllers
         {
             return View(new DeleteProductModel{Id=id});
         }
+
+        [HttpGet]
+        public async Task<IActionResult> PngToJpeg()
+        {
+            await _service.ImgToJpeg();
+            _memoryCache.Remove(CacheKeys.Products);
+            return RedirectToAction("Products");
+
+
+
+        }
     }
 }

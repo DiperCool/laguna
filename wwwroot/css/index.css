@@ -26,7 +26,9 @@
     z-index: 999;
 }
 
-
+div{
+    font-display: swap;
+}
 nav{
     overflow:auto;
     white-space: nowrap;

@@ -1,0 +1,5 @@
+User-agent:*
+Disallow: /basket/
+Disallow: /checkout/
+Disallow: /adminpanel/
+Sitemap: https://laguna.od.ua/sitemap.xml

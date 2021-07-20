@@ -1,173 +1,190 @@
 @model List<Entities.Product>
 
 
-<style>
-    .spacing>div{
-        margin: 0 5px;
-    }
-    .button-product{
-        transition: all .5s ease;
-        fill:#27292e;
-    }
-    .button-product-plus-active{
-        fill:green;
-    }
-    .button-product-minus-active{
-        fill:red;
-    }
-    
-</style>
-<link rel="stylesheet" href="~/css/mobile.css" asp-append-version="true">
-<div id="content">
-    @if(Model.Count==0){
-        <div >
-            <p style="font-family: CoreSansBold;padding: 5px; text-align: center;">
-            Товары добавляются на сайт. Звоните, на <a style="text-decoration:underline;color:black" href="tel:(063)895-35-34">+38(063)895-35-34</a> если хотите проконсультироватся и узнать какие есть товары в наличии
-            </p>
-            <div style="padding: 20px;">
-                <a href="/">
-                    <button class="btn btn-success" style="width: 100%;">
-                        Вернуться
-                    </button>
-                </a>
-            </div>
-        </div>       
-    }
-    @foreach (var category in ViewBag.Categories)
-           {
-               <div class="section">
-                   @if(Model.Where(x=>x.Category.Id==category.Id).Count()==0) continue;
-                   <div class="name-category">@category.Name</div>
-                    @foreach (var item in Model.Where(x=>x.Category.Id==category.Id)){  
-                        <div data-id="@item.Id" class="product d-flex flex-column m-auto">
-                            <div class="container-img-product">
-                                <img class="img-product" src="@item.UrlPhoto">
-                                <div class="middle">
-                                    <button class="img-product-button btn btn-success" data-id="@item.Id">ДОБАВИТЬ В КОРЗИНУ</button>
+<<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="~/css/mobile.css" asp-append-version="true">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-202656812-1">
+    </script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-202656812-1');
+  </script>
+</head>
+<body>
+    <style>
+        .spacing>div{
+            margin: 0 5px;
+        }
+        .button-product{
+            transition: all .5s ease;
+            fill:#27292e;
+        }
+        .button-product-plus-active{
+            fill:green;
+        }
+        .button-product-minus-active{
+            fill:red;
+        }
+        
+    </style>
+    <div id="content">
+        @if(Model.Count==0){
+            <div >
+                <p style="font-family: CoreSansBold;padding: 5px; text-align: center;">
+                Товары добавляются на сайт. Звоните, на <a style="text-decoration:underline;color:black" href="tel:(063)895-35-34">+38(063)895-35-34</a> если хотите проконсультироватся и узнать какие есть товары в наличии
+                </p>
+                <div style="padding: 20px;">
+                    <a href="/">
+                        <button class="btn btn-success" style="width: 100%;">
+                            Вернуться
+                        </button>
+                    </a>
+                </div>
+            </div>       
+        }
+        @foreach (var category in ViewBag.Categories)
+               {
+                   <div class="section">
+                       @if(Model.Where(x=>x.Category.Id==category.Id).Count()==0) continue;
+                       <div class="name-category">@category.Name</div>
+                        @foreach (var item in Model.Where(x=>x.Category.Id==category.Id)){  
+                            <div data-id="@item.Id" class="product d-flex flex-column m-auto">
+                                <div class="container-img-product">
+                                    <img class="img-product" src="@item.UrlPhoto">
+                                    <div class="middle">
+                                        <button class="img-product-button btn btn-success" loading="lazy" data-id="@item.Id">ДОБАВИТЬ В КОРЗИНУ</button>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="text-color product-name">
-                                @item.Name
-                            </div>
-                            <div class="d-flex" class="text-color">
-                                <div class="product-description">
-                                    @item.Description
+                                <div class="text-color product-name">
+                                    @item.Name
                                 </div>
-                                <div class="ml-auto spacing product-excerpt">
-                                    @if(item.Excerpt!=null){
-                                        <div>
-                                            @item.Excerpt гр.
+                                <div class="d-flex" class="text-color">
+                                    <div class="product-description">
+                                        @item.Description
+                                    </div>
+                                    <div class="ml-auto spacing product-excerpt">
+                                        @if(item.Excerpt!=null){
+                                            <div>
+                                                @item.Excerpt гр.
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                                <div class="d-flex" class="text-color">
+                                    <div class="d-flex align-items-center" >
+                                        <div class="product-cost">
+                                        @item.Cost
                                         </div>
-                                    }
-                                </div>
-                            </div>
-                            <div class="d-flex" class="text-color">
-                                <div class="d-flex align-items-center" >
-                                    <div class="product-cost">
-                                    @item.Cost
+                                        <div class="d-flex justify-content-around">
+                                            <svg xmlns="/icons/UAH.svg" style="width: 24px ; height:16px; fill:black;">
+                                                <use  style="fill: black;" xlink:href="/icons/icon.svg#grn"></use>
+                                            </svg>
+                                            
+                                        </div>
                                     </div>
-                                    <div class="d-flex justify-content-around">
-                                        <svg xmlns="/icons/UAH.svg" style="width: 24px ; height:16px; fill:black;">
-                                            <use  style="fill: black;" xlink:href="/icons/icon.svg#grn"></use>
-                                        </svg>
-                                        
-                                    </div>
-                                </div>
 
-                                <div class="d-flex align-items-center ml-auto spacing">
-                                    <div class="minus button-product" data-id="@item.Id">
-                                        <svg style="width: 30px; height:30px;">
-                                            <use xlink:href="/icons/icon.svg#minus">
-                                                
-                                            </use>
-                                        </svg>
-                                    </div>
-                                    <div class="amount" data-id="@item.Id">
-                                        0
-                                    </div>
-                                    <div class="plus button-product" data-id="@item.Id">
-                                        <svg style="width: 30px; height:30px;">
-                                            <use xlink:href="/icons/icon.svg#plus">
-                                                
-                                            </use>
-                                        </svg>
+                                    <div class="d-flex align-items-center ml-auto spacing">
+                                        <div class="minus button-product" data-id="@item.Id">
+                                            <svg style="width: 30px; height:30px;">
+                                                <use xlink:href="/icons/icon.svg#minus">
+                                                    
+                                                </use>
+                                            </svg>
+                                        </div>
+                                        <div class="amount" data-id="@item.Id">
+                                            0
+                                        </div>
+                                        <div class="plus button-product" data-id="@item.Id">
+                                            <svg style="width: 30px; height:30px;">
+                                                <use xlink:href="/icons/icon.svg#plus">
+                                                    
+                                                </use>
+                                            </svg>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <br>
-                    }
-               </div>
-           }
-</div>
-<script src="~/js/Android/Home.js" asp-append-version="true"></script>
-<script src="/lib/waypoints/lib/noframework.waypoints.min.js"></script>
+                            <br>
+                        }
+                   </div>
+               }
+    </div>
+    <script src="~/js/Android/Home.js" asp-append-version="true"></script>
+    <script src="/lib/waypoints/lib/noframework.waypoints.min.js"></script>
 
 
 
-<script type="text/javascript">
+    <script type="text/javascript">
 
-    let activeIndex = 0;
-    let nav = document.querySelectorAll(".item-swiper-3");
-    let clearActive=()=>{
-        nav.forEach((item)=>{
-            item.classList.remove("slide-active");
-        })
-    }
-    let setActive = (name)=>{
-        clearActive();
-        for(let i=0; i<nav.length; i++){
-            if(nav[i].querySelector("a").innerHTML==name && i+1<nav.length){
-                nav[i+1].classList.add("slide-active");
-                swiper3.slideNext();
-                activeIndex=i+1;
-            }
+        let activeIndex = 0;
+        let nav = document.querySelectorAll(".item-swiper-3");
+        let clearActive=()=>{
+            nav.forEach((item)=>{
+                item.classList.remove("slide-active");
+            })
         }
-    }
-
-    let setActivePrev=(name)=>{
-        clearActive();
-        for(let i=0; i<nav.length; i++){
-            if(nav[i].querySelector("a").innerHTML==name){
-                nav[i].classList.add("slide-active");
-                swiper3.slidePrev();
-                activeIndex=i;
-            }
-        }
-
-
-    }
-</script>
-
-<script type="text/javascript">
-    
-
-
-    $(document).ready(()=>{
-        let url = window.location.href;
-        let loc = new URL(url);
-        let name = decodeURI(loc.pathname.split("/")[2]);
-        if(loc.pathname!="/" && loc.pathname.includes("/product/") && name){
-            return;
-
-        };
-        nav[0].classList.add("slide-active");
-        let sections = document.querySelectorAll(".section");
-        sections.forEach(item=>{
-            new Waypoint({
-              element: item,
-              handler: function(direction) {
-                let name = item.querySelector(".name-category").innerHTML;
-                if(direction=="up"){
-                    setActivePrev(name);
-                    return;
+        let setActive = (name)=>{
+            clearActive();
+            for(let i=0; i<nav.length; i++){
+                if(nav[i].querySelector("a").innerHTML==name && i+1<nav.length){
+                    nav[i+1].classList.add("slide-active");
+                    swiper3.slideNext();
+                    activeIndex=i+1;
                 }
-                setActive(name);
-              },
-              offset:()=> -item.offsetHeight+100
+            }
+        }
+
+        let setActivePrev=(name)=>{
+            clearActive();
+            for(let i=0; i<nav.length; i++){
+                if(nav[i].querySelector("a").innerHTML==name){
+                    nav[i].classList.add("slide-active");
+                    swiper3.slidePrev();
+                    activeIndex=i;
+                }
+            }
+
+
+        }
+    </script>
+
+    <script type="text/javascript">
+        
+
+
+        $(document).ready(()=>{
+            let url = window.location.href;
+            let loc = new URL(url);
+            let name = decodeURI(loc.pathname.split("/")[2]);
+            if(loc.pathname!="/" && loc.pathname.includes("/product/") && name){
+                return;
+
+            };
+            nav[0].classList.add("slide-active");
+            let sections = document.querySelectorAll(".section");
+            sections.forEach(item=>{
+                new Waypoint({
+                  element: item,
+                  handler: function(direction) {
+                    let name = item.querySelector(".name-category").innerHTML;
+                    if(direction=="up"){
+                        setActivePrev(name);
+                        return;
+                    }
+                    setActive(name);
+                  },
+                  offset:()=> -item.offsetHeight+100
+                })
             })
         })
-    })
 
 
-</script>
+    </script>
+</body>
+</html>

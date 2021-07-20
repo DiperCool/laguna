@@ -9,6 +9,10 @@ using Tools;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Enums;
+using System.IO;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.Processing;
+using SixLabors.ImageSharp.Formats.Jpeg;
 namespace Services
 {
     public class ProductService : IProductService
@@ -105,6 +109,19 @@ namespace Services
             _context.Products.Update(product);
             await _context.SaveChangesAsync();
             return product;
+        }
+        public async Task ImgToJpeg()
+        {
+            var products = await _context.Products.Where(x=>x.UrlPhoto.Contains(".png")).ToListAsync();
+            foreach(var product in products)
+            {
+                var file = new SaveFile();
+                var shortPath = file.Save(product.UrlPhoto, _appEnvironment.WebRootPath);
+                product.UrlPhoto=shortPath;
+                _context.Products.Update(product);
+
+            }
+            await _context.SaveChangesAsync();
         }
     }
     [System.Serializable]
