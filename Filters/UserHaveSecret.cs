@@ -28,6 +28,12 @@ namespace Filters
 
             public void OnActionExecuted(ActionExecutedContext context)
             {
+            
+            
+            }
+
+            public void OnActionExecuting(ActionExecutingContext context)
+            {
                 CheckUsersSecret check = new CheckUsersSecret();
                 if(!check.Check(context.HttpContext,_config.GetValue<string>("AdminPanel:SecretCode") ))
                 {
@@ -35,13 +41,7 @@ namespace Filters
 
                     context.Result= new RedirectToActionResult("login", "AdminPanel", new Object{});
                     return;
-                }
-            
-            }
-
-            public void OnActionExecuting(ActionExecutingContext context)
-            {
-                
+                }    
             }
         }
     }

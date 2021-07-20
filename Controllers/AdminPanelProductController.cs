@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.Caching.Memory;
 using Models;
-
+using System;
 namespace Controllers
 {
     [UserHaveSecretFilterAtrribute]
@@ -87,6 +87,7 @@ namespace Controllers
         [HttpGet]
         public IActionResult DeleteProduct(int id)
         {
+            Console.WriteLine("i work!!");
             return View(new DeleteProductModel{Id=id});
         }
 
