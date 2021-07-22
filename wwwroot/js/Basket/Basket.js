@@ -97,7 +97,7 @@ let createInputs=(item)=>{
 
 let drawItem = (item)=>{
     let product = document.createElement("div");
-    product.classList.add("text-nowrap", "row","d-flex", "filex-column" );
+    product.classList.add("row","d-flex");
 
     let oneRow= document.createElement("div");
     oneRow.classList.add("col-6");

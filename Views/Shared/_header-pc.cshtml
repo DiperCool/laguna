@@ -99,6 +99,14 @@
                         <div class="d-flex align-items-center carousel swiper-container swiper-1"style="width:95%">
                                     @if(!ViewBag.IsAdmin){
                                     <div class="swiper-wrapper">
+                                        <div class="swiper-slide d-flex justify-content-center menu-button">
+                                             <div> 
+                                                <img src="/icons/pizzaButton.svg" width="61px" height="61px">
+                                            </div>
+                                            <div>
+                                                <a class="link-category" href="~/product/Меню">Меню</a>
+                                            </div>
+                                        </div>
                                         @foreach (var item in ViewBag.Categories)
                                         {
                                             <div class="swiper-slide d-flex justify-content-center" >

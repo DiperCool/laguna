@@ -1,41 +1,41 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description"content="Доставка еды в Приморском. Звоните +38 063 895 35 34. Бесплатная доставка"/>
-    <title>Laguna</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/index.css" asp-append-version="true"/>
-    <link rel="stylesheet" href="~/css/category.css"/>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="~/js/localStorage.js" asp-append-version="true"></script>
-    <script src="~/js/Index/CountBasket.js" asp-append-version="true"></script>
-    <link rel="icon" href="~/favicon.png" type="image/png">
-    <script src="~/js/promocode.js" asp-append-version="true"></script>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <link rel="stylesheet" href="~/lib/swiper/swiper-bundle.min.css" />
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Доставка еды в Приморском. Звоните +38 063 895 35 34. Бесплатная доставка"/>
+        <title>Laguna</title>
+        <link type="text/css" rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link type="text/css" rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+        <link type="text/css" rel="stylesheet" href="~/css/index.css" asp-append-version="true"/>
+        <link type="text/css" rel="stylesheet" href="~/css/category.css"/>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script type="text/javascript" src="~/js/localStorage.js" asp-append-version="true"></script>
+        <script type="text/javascript" src="~/js/Index/CountBasket.js" asp-append-version="true"></script>
+        <link type="text/css" rel="icon" href="~/favicon.png" type="image/png">
+        <script type="text/javascript"src="~/js/promocode.js" asp-append-version="true"></script>
+        <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
+        <link type="text/css" rel="stylesheet" href="~/lib/swiper/swiper-bundle.min.css" />
 
-</head>
-<body>
-
-   <div>
-       <partial name="_header-pc.cshtml" />
-    
-       <partial name="_header-phone.cshtml" />
-   </div>
+    </head>
+    <body>
 
     <div>
-        <main role="" class="pb-3 body-content">
-            @RenderBody()
-        </main>
+        <partial name="_header-pc.cshtml" />
+        
+        <partial name="_header-phone.cshtml" />
     </div>
 
-    <script>
-        countBasket();
-    </script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    @await RenderSectionAsync("Scripts", required: false)
-</body>
+        <div>
+            <main class="pb-3 body-content">
+                @RenderBody()
+            </main>
+        </div>
+
+        <script>
+            countBasket();
+        </script>
+        <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        @await RenderSectionAsync("Scripts", required: false)
+    </body>
 </html>
