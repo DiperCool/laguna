@@ -1,175 +1,170 @@
-
-
-
 <script src="~/lib/swiper/swiper-bundle.min.js"></script>
 
 
 <div class="container-fluid header_fixed header">
-        <div class="row" >
-            <div class="col-2 d-flex" style="padding:0;">
-                <div class="d-flex justify-content-around align-items-end logo" onclick="window.location='/'">
-                    <img src="~/icons/lagonlogo1024x512.png" style="height: 127px; width:100%" >  
-                </div>
+    <div class="row">
+        <div class="col-2 d-flex" style="padding:0;">
+            <div class="d-flex justify-content-around align-items-end logo" onclick="window.location='/'">
+                <img src="~/icons/lagonlogo1024x512.png" style="height: 127px; width:100%">
             </div>
-            <div class="col-10">
-                <div class="d-flex flex-column" >
-                    <div class="row header-info" >
-                        <div class="col-3 d-flex">
-                            <div class="d-flex justify-content-around" style="margin-left: 35px;flex-shrink: 0;" >
-                                <img src="~/icons/GeoButton.svg" class="geo-svg" >
-                            </div>
-                            <div class="geo-prefix">
-                                c.
-                            </div>
-                           <div class="geo-name">
-                               Приморское
-                            </div>
+        </div>
+        <div class="col-10">
+            <div class="d-flex flex-column">
+                <div class="row header-info">
+                    <div class="col-3 d-flex">
+                        <div class="d-flex justify-content-around" style="margin-left: 35px;flex-shrink: 0;">
+                            <img src="~/icons/GeoButton.svg" class="geo-svg">
                         </div>
-                        <div class="col-9 d-flex  justify-content-end">
-                            <div class="d-flex justify-content-around" style="margin-right: 20px;">
-                                <div class="d-flex align-items-center" style="flex-shrink: 0;">
-                                    <img src="~/icons/viber.svg" style="margin-top: -4px;">
-
-                                </div>
-
-                                <div class="d-flex align-items-center margin" style="flex-shrink: 0;">
-                                    <div>
-                                        <img class="margin5px" src="~/icons/deliveryButton.svg">
-                                    </div>
-                                    <div>
-                                        <div>
-                                            Доставка:
-                                        </div>
-                                        <div class="font-weight">
-                                            Бесплатно
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="d-flex align-items-center margin" style="flex-shrink: 0;">
-                                    <div>
-                                        <svg style="height: 40px; width:40px;margin-right: 5px;">
-                                            <use xlink:href="/icons/icon.svg#telephone-pc">
-
-                                            </use>
-                                        </svg>
-
-                                    </div>
-                                    <div>
-                                        <div style="white-space: nowrap;">
-                                            9:00 - 2:00
-                                        </div>
-                                        <div class="font-weight">
-                                            38(063)895-35-34
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="d-flex align-items-center" style="flex-shrink: 0;">
-                                    <div>
-                                       <img src="~/icons/basket.svg" style="margin-right: 5px;">
-                                    </div>
-                                    <div>
-                                        <div>
-                                            <a href="~/basket">
-                                             Корзина
-                                            </a>
-                                        </div>
-                                        <span id="count" class="font-weight"></span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            
+                        <div class="geo-prefix">
+                            c.
+                        </div>
+                        <div class="geo-name">
+                            Приморское
                         </div>
                     </div>
-                    <style>
-                        a:hover{text-decoration: underline}
-                        #next{
-                            cursor: pointer
+                    <div class="col-9 d-flex  justify-content-end">
+                        <div class="d-flex justify-content-around" style="margin-right: 20px;">
+                            <div class="d-flex align-items-center" style="flex-shrink: 0;">
+                                <img src="~/icons/viber.svg" style="margin-top: -4px;">
+
+                            </div>
+
+                            <div class="d-flex align-items-center margin" style="flex-shrink: 0;">
+                                <div>
+                                    <img class="margin5px" src="~/icons/deliveryButton.svg">
+                                </div>
+                                <div>
+                                    <div>
+                                        Доставка:
+                                    </div>
+                                    <div class="font-weight">
+                                        Бесплатно
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-center margin" style="flex-shrink: 0;">
+                                <div>
+                                    <svg style="height: 40px; width:40px;margin-right: 5px;">
+                                        <use xlink:href="/icons/icon.svg#telephone-pc">
+
+                                        </use>
+                                    </svg>
+
+                                </div>
+                                <div>
+                                    <div style="white-space: nowrap;">
+                                        9:00 - 2:00
+                                    </div>
+                                    <div class="font-weight">
+                                        38(063)895-35-34
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-center" style="flex-shrink: 0;">
+                                <div>
+                                    <img src="~/icons/basket.svg" style="margin-right: 5px;">
+                                </div>
+                                <div>
+                                    <div>
+                                        <a href="~/basket">
+                                            Корзина
+                                        </a>
+                                    </div>
+                                    <span id="count" class="font-weight"></span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="d-flex align-items-center swiper-pc">
+                    <div class="back button-navigation" style="transform: rotate(180deg);">
+                        <img src="~/icons/arrow-right.svg">
+                    </div>
+                    <div class="d-flex align-items-center carousel swiper-container swiper-1" style="width:95%">
+                        @if (!ViewBag.IsAdmin)
+                        {
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide d-flex justify-content-center menu-button">
+                                    <div>
+                                        <svg style="width: 61px; height:61px; padding:5px 0">
+                                            <use style="fill: rgb(207 216 220)" xlink:href="/icons/icon.svg#menu"></use>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <a class="link-category" href="/menu">МЕНЮ </a>
+                                    </div>
+                                </div>
+                                @foreach (var item in ViewBag.Categories)
+                                {
+                                    <div class="swiper-slide d-flex justify-content-center">
+                                        <div>
+                                            <img src="@item.IconUrl" style="width: 61px; height:61px">
+                                        </div>
+                                        <div>
+                                            <a class="link-category" href="~/product/@item.Name">@item.Name</a>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
                         }
-                        .back, .next:hover{
-                            cursor: pointer
+                        else
+                        {
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide"> <a href="~/AdminPanelProduct/Products">Список продуктов</a></div>
+                                <div class="swiper-slide"><a href="~/AdminPanelProduct/createproduct">Создать продукт</a>
+                                </div>
+                                <div class="swiper-slide"><a href="~/AdminPanel/category">Управление категориями</a></div>
+                                <div class="swiper-slide"><a href="~/AdminPanelOrders/orders">Заказы</a></div>
+                                <div class="swiper-slide"><a href="~/AdminPanelPromocode/GetPromocodes">Список
+                                        промокодов</a></div>
+                                <div class="swiper-slide"><a href="~/AdminPanelPromocode/CreatePromocode">Создать
+                                        промокод</a></div>
+                            </div>
                         }
-                    </style>
-                   <div class="d-flex align-items-center ">
-                        <div class="back button-navigation" style="transform: rotate(180deg);">
-                            <img src="~/icons/arrow-right.svg">
-                        </div>
-                        <div class="d-flex align-items-center carousel swiper-container swiper-1"style="width:95%">
-                                    @if(!ViewBag.IsAdmin){
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide d-flex justify-content-center menu-button">
-                                             <div> 
-                                                <img src="/icons/pizzaButton.svg" width="61px" height="61px">
-                                            </div>
-                                            <div>
-                                                <a class="link-category" href="~/product/Меню">Меню</a>
-                                            </div>
-                                        </div>
-                                        @foreach (var item in ViewBag.Categories)
-                                        {
-                                            <div class="swiper-slide d-flex justify-content-center" >
-                                                <div> 
-                                                    <img src="@item.IconUrl" width="61px" height="61px">
-                                                </div>
-                                                <div>
-                                                    <a class="link-category" href="~/product/@item.Name">@item.Name</a>
-                                                </div>
-                                            </div>
-                                        }
-                                        </div>
-                                    }else{
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide"> <a href="~/AdminPanelProduct/Products">Список продуктов</a></div>
-                                        <div class="swiper-slide"><a href="~/AdminPanelProduct/createproduct">Создать продукт</a></div>
-                                        <div class="swiper-slide"><a href="~/AdminPanel/category">Управление категориями</a></div>
-                                        <div class="swiper-slide"><a href="~/AdminPanelOrders/orders">Заказы</a></div>
-                                        <div class="swiper-slide"><a href="~/AdminPanelPromocode/GetPromocodes">Список промокодов</a></div>
-                                        <div class="swiper-slide"><a href="~/AdminPanelPromocode/CreatePromocode">Создать промокод</a></div>
-                                        </div>
-                                    }
-                                
-                        </div>
-                        <div class="next button-navigation">
-                            <img src="~/icons/arrow-right.svg">
-                        </div>
-                   </div>
+                    </div>
+                    <div class="next button-navigation">
+                        <img src="~/icons/arrow-right.svg">
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <script>
-        $(document).ready(()=>{
+</div>
+<script>
+    $(document).ready(() => {
         const swiper = new Swiper('.swiper-1', {
             // Optional parameters
-                slidesPerView:"auto",
-                spaceBetween:60,
-                direction: 'horizontal',
-                navigation: {
-                    nextEl: '.next',
-                    prevEl: '.back',
+            slidesPerView: "auto",
+            spaceBetween: 60,
+            direction: 'horizontal',
+            navigation: {
+                nextEl: '.next',
+                prevEl: '.back',
+            },
+
+            breakpoints: {
+                930: {
+                    slidesPerView: "auto",
+                    spaceBetween: 70
                 },
 
-                breakpoints:{
-                    930:{
-                        slidesPerView:"auto",
-                        spaceBetween:70
-                    },
-                    
 
-                    1320:{
-                        slidesPerView:"auto",
-                        spaceBetween:90,
-                    },
-                    1500:{
-                        slidesPerView:"auto",
-                        spaceBetween:100,
-                    }
+                1320: {
+                    slidesPerView: "auto",
+                    spaceBetween: 90,
+                },
+                1500: {
+                    slidesPerView: "auto",
+                    spaceBetween: 100,
                 }
-            });
+            }
         });
-    
-    
-   
-    </script>
+    });
+
+
+
+</script>

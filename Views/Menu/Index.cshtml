@@ -1,0 +1,54 @@
+@model List<string>
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="~/css/menu.css" asp-append-version="true"/>        
+    </head>
+    <body>
+        <div class="content-menu">
+            <div class="swiper-container-menu">
+                <div class="swiper-wrapper">
+                    @foreach (var item in Model)
+                    {
+                        <div class="swiper-slide">
+                            <img class="menu-photo" src="/menus/@item"/>
+                        </div>
+                    }
+                </div>
+                <div class="swiper-pagination"></div>
+
+  <!-- If we need navigation buttons -->
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+
+  <!-- If we need scrollbar -->
+            </div>
+        </div>
+
+
+        <script>
+            const swiper = new Swiper('.swiper-container-menu', 
+            {
+                loop: true,
+                pagination: {
+                    el: '.swiper-pagination',
+                },
+
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+
+                scrollbar: {
+                    el: '.swiper-scrollbar',
+                },
+                breakpoints:{
+                    800:{
+                        slidesPerView: 2,
+                        spaceBetween: 40,
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,18 @@
+.content-menu{
+    color:black;
+}
+
+.menu-photo{
+    width: auto;
+    height: 650px;
+}
+.swiper-container-menu{
+    position: relative;
+}
+.swiper-button-next, .swiper-button-prev {
+    top:50%;
+    color:#41b144;
+}
+.swiper-pagination-bullet{
+    background-color: #41b144
+}

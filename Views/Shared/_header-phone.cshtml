@@ -1,102 +1,18 @@
-
-
-
-<style>
-    .no-wrap{
-        white-space: nowrap;
-    }
-    
-
-</style>
-
-
-<style>
-    .swiper-slide {
-        text-align: center;
-        /* Center slide text vertically */
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-        flex-direction: column;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        -webkit-justify-content: center;
-        justify-content: center;
-        width:auto;
-        height:auto;
-
-      }
-      .slide-active{          
-        border:1px green solid;
-        border-radius: 50px;
-        padding:0 5px	
-      }
-      item-swiper-3{
-      padding:0 5px
-      }
-
-      .basket-phone{
-            position: relative;
-            border-width: 0.95px;
-            border-color: rgb(255, 255, 255);
-            border-style: solid;
-            border-width: 1px;
-            border-radius: 50%;
-            opacity: 0.64;
-            box-shadow: 0px 10px 19.36px 2.64px rgba(0, 0, 0, 0.7),inset 0px 1px 10px 0px rgba(0, 0, 0, 0.75);
-            padding: 2px;
-            width: 56px;
-            height: 57px;
-            background-color: #336b27;
-                    
-
-      }
-
-      .red-circle{
-        position: absolute;
-        border-radius: 50%;
-        background-color: #b63b3b;
-        top:-10px;
-        right: 0;
-        height: 22px;
-        width: 22px;
-        box-shadow: none;
-        z-index: 100;
-        opacity: 1;
-        font-size: 10px;
-        display: flex;
-        align-items: center;
-        color: white;
-        justify-content: center;
-      }
-      .logo-mob{
-          width: 78px;
-          height: 78px;
-      }
-
-    .category-header{
-        font-family: "CoreSans75Black";
-        text-transform: uppercase;
-    }
-
-
-</style>
 <div class="header-phone">
     <div class="header-phone-info d-flex flex-column">
         <div class="d-flex align-items-center" style="height: 78px;">
             <div class="d-flex justify-content-around" style="flex-shrink:0">
                 <a href="/">
-		    <img class="logo-mob" src="~/png/Logotip.png">
-		</a>
+                    <img class="logo-mob" src="~/png/Logotip.png">
+                </a>
             </div>
             <div class="d-flex  align-items-center justify-content-around" style="flex-shrink:0">
                 <div>
                     <div>
                         <a href="tel:(063)895-35-34">
-                        <svg style="width: 40px; height:38px">
-                            <use xlink:href="/icons/icon.svg#logo-phone"></use>
-                        </svg>
+                            <svg style="width: 40px; height:38px">
+                                <use xlink:href="/icons/icon.svg#logo-phone"></use>
+                            </svg>
                         </a>
                     </div>
                 </div>
@@ -111,7 +27,7 @@
             </div>
             <div class="d-flex align-items-center ml-auto basket-cost">
                 <div class="cost-mobile basket-cost-element">
-                    
+
                 </div>
                 <div class="d-flex justify-content-around basket-cost-element">
                     <svg style="width: 16px ; height:24px; margin-right:3px ">
@@ -119,97 +35,88 @@
                     </svg>
                 </div>
                 <div style="position: relative;">
-                    <a href="~/basket"><div class="basket-phone">
-                        <img src="~/icons/basketButtonMob.svg" width="50px" height="50px">
-
-                    </div>
-                    <span class="red-circle"></span></a>
+                    <a href="~/basket">
+                        <div class="basket-phone">
+                            <img src="~/icons/basketButtonMob.svg" width="50px" height="50px">
+                        </div>
+                        <span class="red-circle"></span>
+                    </a>
                 </div>
             </div>
         </div>
-       
     </div>
-<div>
+    <div>
         <div class="nav-mobile-fixed">
-           
-                <div class="carousel swiper-container swiper-3  p-2 ">
-                    @if(!ViewBag.IsAdmin){
-                    <div class="swiper-wrapper " >
+
+            <div class="carousel swiper-container swiper-3  p-2 ">
+                @if (!ViewBag.IsAdmin)
+                {
+                    <div class="swiper-wrapper ">
                         @foreach (var item in ViewBag.Categories)
                         {
-                                <div class="item-swiper-3 swiper-slide swiper-slide-3 category-header" >
-                                    <div style="box-sizing: border-box;">
-                                    <a class="link-category " style="font-size: 15px;white-space:nowrap" href="~/product/@item.Name">@item.Name</a>
-                                    </div>
+                            <div class="item-swiper-3 swiper-slide swiper-slide-3 category-header">
+                                <div style="box-sizing: border-box;">
+                                    <a class="link-category " style="font-size: 15px;white-space:nowrap"
+                                href="~/product/@item.Name">@item.Name</a>
                                 </div>
-                           
+                            </div>
+
                         }
                     </div>
-                    }else{
-                        <div class="swiper-wrapper textsize">
-                            <div class="swiper-slide"> <a href="~/AdminPanelProduct/Products">Список продуктов</a></div>
-                            <div class="swiper-slide"><a href="~/AdminPanelProduct/createproduct">Создать продукт</a></div>
-                            <div class="swiper-slide"><a href="~/AdminPanel/category">Управление категориями</a></div>
-                            <div class="swiper-slide"><a href="~/AdminPanelOrders/orders">Заказы</a></div>
-                            <div class="swiper-slide"><a href="~/AdminPanelPromocode/GetPromocodes">Список промокодов</a></div>
-                            <div class="swiper-slide"><a href="~/AdminPanelPromocode/CreatePromocode">Создать промокод</a></div>
-                        </div>
-                    }
-                        
-                
-
+                }
+                else
+                {
+                    <div class="swiper-wrapper textsize">
+                        <div class="swiper-slide"> <a href="~/AdminPanelProduct/Products">Список продуктов</a></div>
+                        <div class="swiper-slide"><a href="~/AdminPanelProduct/createproduct">Создать продукт</a></div>
+                        <div class="swiper-slide"><a href="~/AdminPanel/category">Управление категориями</a></div>
+                        <div class="swiper-slide"><a href="~/AdminPanelOrders/orders">Заказы</a></div>
+                        <div class="swiper-slide"><a href="~/AdminPanelPromocode/GetPromocodes">Список промокодов</a></div>
+                        <div class="swiper-slide"><a href="~/AdminPanelPromocode/CreatePromocode">Создать промокод</a></div>
+                    </div>
+                }
             </div>
         </div>
     </div>
 </div>
-
-<style>
-    .back-2{
-        background-color: rgb(39, 41, 46);
-        z-index: 10;
-        width: 10%;
-
-    }
-    .swiper-container-2{
-        background-color: rgb(39, 41, 46);
-    }
-    .next-2{
-        background-color: rgb(39, 41, 46);
-        width: 10%;
-        z-index: 10;
-
-    }
-
-    .textsize{
-        font-size: 10px;
-    }
-
-</style>
- 
 <div class="nav-mobile">
     <div class="d-flex align-items-center ">
-        <div class="back-2 button-navigation d-flex justify-content-around align-items-center" style="transform: rotate(180deg);">
-            <img class="img"src="~/icons/arrow-right.svg" height="30px">
+        <div class="back-2 button-navigation d-flex justify-content-around align-items-center"
+            style="transform: rotate(180deg);">
+            <img class="img" src="~/icons/arrow-right.svg" height="30px">
         </div>
-        <div class="d-flex align-items-center carousel swiper-container swiper-2" style="width:80%">        
-            @if(!ViewBag.IsAdmin){
-            <div class="swiper-wrapper" >   
-                @foreach (var item in ViewBag.Categories)
-                {
-                
-                        <div class="swiper-slide d-flex justify-content-center" >
-                            <div> 
-                                <img src="@item.IconUrl" width="40px" height="40px">
+        <div class="d-flex align-items-center carousel swiper-container swiper-2" style="width:80%">
+            @if (!ViewBag.IsAdmin)
+            {
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide d-flex justify-content-center menu-button">
+                        <div>
+                            <svg style="width: 40px; height:40px; padding:3px 0">
+                                <use style="fill: rgb(207 216 220)" xlink:href="/icons/icon.svg#menu"></use>
+                            </svg>
+                        </div>
+                        <div>
+                            <a class="link-category" style="font-size:12px" href="/menu">МЕНЮ </a>
+                        </div>
+                    </div>
+                    @foreach (var item in ViewBag.Categories)
+                    {
+
+                        <div class="swiper-slide d-flex justify-content-center">
+                            <div>
+                                <img src="@item.IconUrl" style="width: 40px; height:40px">
                             </div>
                             <div>
                                 <a class="link-category" style="font-size:12px" href="~/product/@item.Name">@item.Name</a>
                             </div>
                         </div>
-                    
-                }
+
+                    }
                 </div>
-            }else{
-                <div class="swiper-wrapper textsize" >
+            }
+            else
+            {
+                <div class="swiper-wrapper textsize">
                     <div class="swiper-slide"> <a href="~/AdminPanelProduct/Products">Список продуктов</a></div>
                     <div class="swiper-slide"><a href="~/AdminPanelProduct/createproduct">Создать продукт</a></div>
                     <div class="swiper-slide"><a href="~/AdminPanel/category">Управление категориями</a></div>
@@ -217,79 +124,79 @@
                     <div class="swiper-slide"><a href="~/AdminPanelPromocode/GetPromocodes">Список промокодов</a></div>
                     <div class="swiper-slide"><a href="~/AdminPanelPromocode/CreatePromocode">Создать промокод</a></div>
                 </div>
-            }           
+            }
         </div>
         <div class="next-2 button-navigation d-flex justify-content-around align-items-center">
             <div>
-                <img class="img"src="~/icons/arrow-right.svg" height="30px" >
+                <img class="img" src="~/icons/arrow-right.svg" height="30px">
             </div>
         </div>
     </div>
 </div>
 
-    
+
 
 
 <script>
-         const swiper2 = new Swiper('.swiper-2', {
-            // Optional parameters
-                slidesPerView:"auto",
-                spaceBetween:25,
-                direction: 'horizontal',
-                navigation: {
-                    nextEl: '.next-2',
-                    prevEl: '.back-2',
-                },
-                
-
-            });
-
-            const swiper3 = new Swiper('.swiper-3', {
-                // Optional parameters
-                    slidesPerView:"auto",
-                    direction: 'horizontal',
-                    spaceBetween:50,
-                    breakpoints:{
-                        380:{
-                            slidesPerView:"auto",
-                            spaceBetween:50
-                        },
-                        470:{
-                            spaceBetween:30,
-                            slidesPerView:"auto"
-                        }
-                    },
+    const swiper2 = new Swiper('.swiper-2', {
+        // Optional parameters
+        slidesPerView: "auto",
+        spaceBetween: 25,
+        direction: 'horizontal',
+        navigation: {
+            nextEl: '.next-2',
+            prevEl: '.back-2',
+        },
 
 
-                }
+    });
 
-            );
-            let url = window.location.href;
-            let loc = new URL(url);
-            let name = decodeURI(loc.pathname.split("/")[2]);
-            if(loc.pathname!="/" && loc.pathname.includes("/product/") && name){
-                for(let el of document.querySelectorAll(".item-swiper-3")){
-                    if(el.querySelector("a").innerHTML==name){
-                        el.classList.add("slide-active");
-                        break;
-                    }
-                }
+    const swiper3 = new Swiper('.swiper-3', {
+        // Optional parameters
+        slidesPerView: "auto",
+        direction: 'horizontal',
+        spaceBetween: 50,
+        breakpoints: {
+            380: {
+                slidesPerView: "auto",
+                spaceBetween: 50
+            },
+            470: {
+                spaceBetween: 30,
+                slidesPerView: "auto"
+            }
+        },
 
-            };
-            let fixed= document.querySelector(".nav-mobile-fixed");
-            let hide= false;
-            document.addEventListener('scroll', function(e) {
 
-                if(window.scrollY>70){
-                    fixed.classList.remove("hide-nav");
-                    fixed.classList.remove("display-nav");
-                    fixed.classList.add("display-nav");
-                    hide=true;
-                }
-                else if(hide){
-                    fixed.classList.remove("display-nav");
-                    fixed.classList.remove("hide-nav");
-                    fixed.classList.add("hide-nav");
-                }
-            });
+    }
+
+    );
+    let url = window.location.href;
+    let loc = new URL(url);
+    let name = decodeURI(loc.pathname.split("/")[2]);
+    if (loc.pathname != "/" && loc.pathname.includes("/product/") && name) {
+        for (let el of document.querySelectorAll(".item-swiper-3")) {
+            if (el.querySelector("a").innerHTML == name) {
+                el.classList.add("slide-active");
+                break;
+            }
+        }
+
+    };
+    let fixed = document.querySelector(".nav-mobile-fixed");
+    let hide = false;
+    document.addEventListener('scroll', function (e) {
+
+        if (window.scrollY > 70) {
+            fixed.classList.remove("hide-nav");
+            fixed.classList.remove("display-nav");
+            fixed.classList.add("display-nav");
+            hide = true;
+        }
+        else if (hide) {
+            fixed.classList.remove("display-nav");
+            fixed.classList.remove("hide-nav");
+            fixed.classList.add("hide-nav");
+        }
+    });
 </script>

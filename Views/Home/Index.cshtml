@@ -4,43 +4,53 @@
 }
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="~/css/product.css" asp-append-version="true"/>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-202656812-1">
-        </script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
 
-          gtag('config', 'UA-202656812-1');
-        </script>      
-    </head>
-    <body>
-        <div id="content">
-           @if(Model.Count==0){
-            <div >
-            <p style="font-family: CoreSansBold;padding: 5px;">
-            Товары добавляются на сайт. Звоните, на <a style="text-decoration:underline;" href="tel:(063)895-35-34">+38(063)895-35-34</a> если хотите проконсультироватся и узнать какие есть товары в наличии
-            </p>
-            <div style="padding: 20px;">
-                <a href="/">
-                    <button class="btn btn-outline-danger mx-auto d-block" style="width:30%">
-                        Вернуться
-                    </button>
-                </a>
+<head>
+    <link rel="stylesheet" href="~/css/product.css" asp-append-version="true" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-202656812-1">
+    </script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-202656812-1');
+    </script>
+</head>
+
+<body>
+    <div id="content">
+        @if (Model.Count == 0)
+        {
+            <div>
+                <p style="font-family: CoreSansBold;padding: 5px;">
+                    Товары добавляются на сайт. Звоните, на <a style="text-decoration:underline;"
+                    href="tel:(063)895-35-34">+38(063)895-35-34</a> если хотите проконсультироватся и узнать какие есть
+                    товары в наличии
+                </p>
+                <div style="padding: 20px;">
+                    <a href="/">
+                        <button class="btn btn-outline-danger mx-auto d-block" style="width:30%">
+                            Вернуться
+                        </button>
+                    </a>
+                </div>
             </div>
-        </div>
-           }
-           @foreach (var category in ViewBag.Categories)
-           {
-               if(Model.Where(x=>x.Category.Id==category.Id).Count()==0) continue;
-               <div class="d-flex align-items-end category-name @(count%2==0? "two":"one")"> <div>@category.Name</div> </div>
-               count+=1;
-               foreach (var item in Model.Where(x=>x.Category.Name==category.Name)){
-            
+        }
+        @foreach (var category in ViewBag.Categories)
+        {
+            if (Model.Where(x => x.Category.Id == category.Id).Count() == 0) continue;
+            <div class="d-flex align-items-end category-name @(count%2==0? "two":"one")">
+                <div>@category.Name</div>
+            </div>
+            count += 1;
+            foreach (var item in Model.Where(x => x.Category.Name == category.Name))
+            {
+
                 <div class="product @(count%2==0? "two":"one")" data-id="@item.Id">
-                    @{ count+=1; }
+                    @{
+                        count += 1; 
+                    }
                     <img src="@item.UrlPhoto" class="product-img">
                     <div class="row no-gutters">
                         <div class="col-8">
@@ -48,14 +58,15 @@
                                 @item.Name
                             </div>
                             <div class="excerpt">
-                            @if(item.Excerpt!=null){
-                                <div>@item.Excerpt гр</div>
-                            }
+                                @if (item.Excerpt != null)
+                                {
+                                    <div>@item.Excerpt гр</div>
+                                }
                             </div>
                         </div>
-                        <div class="col-4 d-flex align-items-center justify-content-end" > 
+                        <div class="col-4 d-flex align-items-center justify-content-end">
                             <span class="cost">@item.Cost грн.</span>
-                            <div class="button-buy"  data-id=@item.Id>
+                            <div class="button-buy" data-id=@item.Id>
                                 <svg xmlns="/icons/button-plus.svg" style="width: 30px ; height:30px;">
                                     <use id="use" xlink:href="/icons/button-plus.svg#plus-button" class="plus-button"></use>
                                 </svg>
@@ -67,33 +78,37 @@
                 </div>
             }
             <br>
-           }
-        </div>
-        <div class="current-product">
-            <svg xmlns="http://www.w3.org/2000/svg" class="close-current-product" width="32" height="32" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
-                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-            </svg>
-            <div class="row">
-                <div class="col-8">
-                    <img class="img-current-product">
-                </div>
-                <div class="col-4">
-                    <div>
-                        <h1 class="name-current" style="font-weight: bold;"></div>
-                        <div class="cost-current"></div>
-                        <div class="excerpt-current"></div>
-                        <div class="description-current" style="white-space:break-word;"></div>
-                        <button id="button-current-product" class="btn btn-outline-danger">Додати до кошика</button>
-
-                    </div>
-                    
-                </div>
+        }
+    </div>
+    <div class="current-product">
+        <svg xmlns="http://www.w3.org/2000/svg" class="close-current-product" width="32" height="32" fill="currentColor"
+            class="bi bi-x-circle" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+            <path
+                d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+        </svg>
+        <div class="row">
+            <div class="col-8">
+                <img class="img-current-product">
             </div>
-        </div>
-        
-        <script src="~/js/Index/ViewPhotoProduct.js" asp-append-version="true"></script>
-        
+            <div class="col-4">
+                <div>
+                    <h1 class="name-current" style="font-weight: bold;">
+                </div>
+                <div class="cost-current"></div>
+                <div class="excerpt-current"></div>
+                <div class="description-current" style="white-space:break-word;"></div>
+                <button id="button-current-product" class="btn btn-outline-danger">Додати до кошика</button>
 
-    </body>
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+    <script src="~/js/Index/ViewPhotoProduct.js" asp-append-version="true"></script>
+
+
+</body>
+
 </html>
