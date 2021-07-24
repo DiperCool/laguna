@@ -33,8 +33,6 @@ namespace Filters
             string path = context.HttpContext.Request.Path.Value.ToLower();
             CheckUsersSecret check = new CheckUsersSecret();
             ((Controller)context.Controller).ViewBag.Phone = _config.GetValue<string>("Phone:phone");
-            Console.WriteLine(_config.GetValue<string>("Phone:phone"));
-            Console.WriteLine("---------------------------------------------");
             if(path.Contains("adminpanel") && check.Check(context.HttpContext,_config.GetValue<string>("AdminPanel:SecretCode")))
             {
                 ((Controller)context.Controller).ViewBag.IsAdmin = true;
