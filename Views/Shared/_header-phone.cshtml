@@ -9,7 +9,7 @@
             <div class="d-flex  align-items-center justify-content-around" style="flex-shrink:0">
                 <div>
                     <div>
-                        <a href="tel:(063)895-35-34">
+                        <a href="tel:@ViewBag.Phone">
                             <svg style="width: 40px; height:38px">
                                 <use xlink:href="/icons/icon.svg#logo-phone"></use>
                             </svg>
@@ -21,7 +21,9 @@
                         9:00 - 2:00
                     </div>
                     <div class="no-wrap phone">
-                        38(063)895-35-34
+                        <a href="tel:@ViewBag.Phone">
+                            @("38"+ViewBag.Phone)
+                        </a>
                     </div>
                 </div>
             </div>
@@ -89,27 +91,31 @@
             @if (!ViewBag.IsAdmin)
             {
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide d-flex justify-content-center menu-button">
-                        <div>
-                            <svg style="width: 40px; height:40px; padding:3px 0">
-                                <use style="fill: rgb(207 216 220)" xlink:href="/icons/icon.svg#menu"></use>
-                            </svg>
+                    <a href="/menu">
+                        <div class="swiper-slide d-flex justify-content-center menu-button">
+                            <div>
+                                <svg style="width: 40px; height:40px; padding:3px 0">
+                                    <use style="fill: rgb(207 216 220)" xlink:href="/icons/icon.svg#menu"></use>
+                                </svg>
+                            </div>
+                            <div>
+                                <a class="link-category" style="font-size:12px" href="/menu">МЕНЮ </a>
+                            </div>
                         </div>
-                        <div>
-                            <a class="link-category" style="font-size:12px" href="/menu">МЕНЮ </a>
-                        </div>
-                    </div>
+                    </a>
                     @foreach (var item in ViewBag.Categories)
                     {
 
-                        <div class="swiper-slide d-flex justify-content-center">
-                            <div>
-                                <img src="@item.IconUrl" style="width: 40px; height:40px">
+                        <a href="~/product/@item.Name">
+                            <div class="swiper-slide d-flex justify-content-center">
+                                <div>
+                                    <img src="@item.IconUrl" style="width: 40px; height:40px">
+                                </div>
+                                <div>
+                                    <a class="link-category" style="font-size:12px" href="~/product/@item.Name">@item.Name</a>
+                                </div>
                             </div>
-                            <div>
-                                <a class="link-category" style="font-size:12px" href="~/product/@item.Name">@item.Name</a>
-                            </div>
-                        </div>
+                        </a>
 
                     }
                 </div>

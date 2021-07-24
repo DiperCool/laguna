@@ -34,7 +34,7 @@ namespace Laguna
             services.AddDbContext<Context>(opt =>
                 opt.UseNpgsql(Configuration.GetConnectionString("MyWebApiConection")));
             services.AddControllersWithViews(options=>{
-                options.Filters.Add(new ServiceFilterAttribute(typeof(ViewBagCategoriesFilterAttribute)));
+                options.Filters.Add(new ServiceFilterAttribute(typeof(ViewBagCategoriesAndPhoneFilterAttribute)));
             })
             .AddNewtonsoftJson(options =>
                 {
@@ -57,7 +57,7 @@ namespace Laguna
             services.AddTransient<IEmailService, EmailService>();
             services.AddTransient<IOrderService, OrderService>();
             services.AddTransient<IPromocodeService, PromocodeService>();
-            services.AddTransient<ViewBagCategoriesFilterAttribute>();
+            services.AddTransient<ViewBagCategoriesAndPhoneFilterAttribute>();
 
         }
 

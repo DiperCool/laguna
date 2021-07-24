@@ -10,13 +10,13 @@ using Tools;
 
 namespace Filters
 {
-    public class ViewBagCategoriesFilterAttribute : Attribute, IAsyncActionFilter
+    public class ViewBagCategoriesAndPhoneFilterAttribute : Attribute, IAsyncActionFilter
     {
         ICategoryService _service;
         IConfiguration _config;
         IMemoryCache _cache;
 
-        public ViewBagCategoriesFilterAttribute(ICategoryService service, IConfiguration config, IMemoryCache cache)
+        public ViewBagCategoriesAndPhoneFilterAttribute(ICategoryService service, IConfiguration config, IMemoryCache cache)
         {
             _service = service;
             _config = config;
@@ -29,9 +29,12 @@ namespace Filters
                 entry.SlidingExpiration = TimeSpan.FromMinutes(10);
                 return await _service.GetCategories();
             });
+            
             string path = context.HttpContext.Request.Path.Value.ToLower();
             CheckUsersSecret check = new CheckUsersSecret();
-
+            ((Controller)context.Controller).ViewBag.Phone = _config.GetValue<string>("Phone:phone");
+            Console.WriteLine(_config.GetValue<string>("Phone:phone"));
+            Console.WriteLine("---------------------------------------------");
             if(path.Contains("adminpanel") && check.Check(context.HttpContext,_config.GetValue<string>("AdminPanel:SecretCode")))
             {
                 ((Controller)context.Controller).ViewBag.IsAdmin = true;
