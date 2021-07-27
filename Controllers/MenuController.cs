@@ -16,6 +16,7 @@ namespace laguna.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+            ViewBag.Title="Лагуна | Меню";
             var files = Directory.GetFiles(_appEnvironment.WebRootPath+"/menus")
                         .ToList()
                         .Select(x=>Path.GetFileName(x))

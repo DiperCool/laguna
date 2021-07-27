@@ -39,6 +39,7 @@ namespace Laguna.Controllers
             {
                 return View("~/Views/Android/Home.cshtml", products);
             }
+            ViewBag.Title = "Кафе-бар \"Лагуна\". Доставка еды в Приморском";
             return View(products);
         }
         [Route("/product/{category}")]
@@ -52,6 +53,7 @@ namespace Laguna.Controllers
             {
                 return View("~/Views/Android/Home.cshtml", products2);
             }
+            ViewBag.Title = "Лагуна | "+category;
             return View(products2);
         }
 

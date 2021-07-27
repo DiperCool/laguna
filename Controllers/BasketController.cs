@@ -22,6 +22,7 @@ namespace Controllers
         [HttpGet]
         public IActionResult Index()
         {
+            ViewBag.Title="Лагуна | Корзина";
             return View();
         }
         [HttpGet]

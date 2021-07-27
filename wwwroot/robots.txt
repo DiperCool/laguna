@@ -2,6 +2,5 @@ User-agent: *
 Disallow: /basket
 Disallow: /checkout
 Disallow: /adminpanel/
-Disallow: /product/
 Disallow: /menu
 Sitemap: https://laguna.od.ua/sitemap.xml

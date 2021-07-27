@@ -4,8 +4,9 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    @RenderSection("AdditionalMeta", false)
     <meta name="description" content='Доставка еды в Приморском. Звоните @("+38"+ViewBag.Phone) . Бесплатная доставка' />
-    <title>Laguna</title>
+    <title>@ViewBag.Title</title>
     <link type="text/css" rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link type="text/css" rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
     <link type="text/css" rel="stylesheet" href="~/css/category.css" />
@@ -17,7 +18,6 @@
     <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
     <link type="text/css" rel="stylesheet" href="~/lib/swiper/swiper-bundle.min.css" />
     <link type="text/css" rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-
 
 </head>
 

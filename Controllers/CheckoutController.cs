@@ -35,6 +35,7 @@ namespace Controllers
         [HttpGet]
         public IActionResult Index()
         {
+            ViewBag.Title="Оформления заказа";
             return View();
         }
 
