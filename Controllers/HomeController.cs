@@ -35,11 +35,12 @@ namespace Laguna.Controllers
         {
             var products = await GetProducts();
             //_detectionService.Device.Type==Wangkanai.Detection.Models.Device.Mobile)
+            ViewBag.Title = "Кафе-бар \"Лагуна\". Доставка еды в Приморском";
+
             if(_detectionService.Device.Type==Wangkanai.Detection.Models.Device.Mobile)
             {
                 return View("~/Views/Android/Home.cshtml", products);
             }
-            ViewBag.Title = "Кафе-бар \"Лагуна\". Доставка еды в Приморском";
             return View(products);
         }
         [Route("/product/{category}")]
@@ -49,11 +50,11 @@ namespace Laguna.Controllers
             Category cat = await _catService.GetCategoryByName(category);
             if (cat == null) return RedirectToAction("Error404", "Error");
             var products2 = products.Where(x => x.Category.Id == cat.Id).ToList();
+            ViewBag.Title = "Лагуна | "+category;
             if (_detectionService.Device.Type == Wangkanai.Detection.Models.Device.Mobile)
             {
                 return View("~/Views/Android/Home.cshtml", products2);
             }
-            ViewBag.Title = "Лагуна | "+category;
             return View(products2);
         }
 
