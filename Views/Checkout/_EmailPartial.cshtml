@@ -41,6 +41,7 @@
             <tr>
                 <th>ID</th>
                 <th>Название продука</th>
+                <th>Категория</th>
                 <th>Количество</th>
                 <th>Цена продукта</th>
                 <th>Цена за все количество</th>
@@ -50,6 +51,7 @@
                 <tr>
                     <td>@item.Product.Id</td>
                     <td>@item.Product.Name</td>
+                    <th>@item.Product.Category.Name</th>
                     <td>@item.Amount</td>
                     <td>@item.Product.Cost</td>
                     <th>@(item.Product.Cost *item.Amount)</th>

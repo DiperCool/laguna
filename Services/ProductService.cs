@@ -62,7 +62,10 @@ namespace Services
 
         public async Task<Product> GetProductById(int id)
         {
-            return await _context.Products.AsNoTracking().FirstOrDefaultAsync(x=>x.Id==id);
+            return await _context.Products
+                            .AsNoTracking()
+                            .Include(x=>x.Category)
+                            .FirstOrDefaultAsync(x=>x.Id==id);
         }
 
         public async Task<List<Product>> GetProductFilter(string name, int? idCategory)

@@ -103,6 +103,7 @@ button{
     background-color: #242424;
     margin: 0 auto;
     text-align: center;
+    font-family: "Bookman Old Style Bold";
 }
 
 @media screen and (max-width: 380px) {

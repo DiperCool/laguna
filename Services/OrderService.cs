@@ -28,7 +28,11 @@ namespace Services
 
             int pageSize = 20;
             int count = await _context.Orders.CountAsync();
-            var items = await _context.Orders.OrderByDescending(x=>x.Id).Skip((page - 1) * pageSize).Take(pageSize).ToListAsync();
+            var items = await _context.Orders
+                            .Include(x=>x.Products)
+                            .OrderByDescending(x=>x.Id).Skip((page - 1) * pageSize)
+                            .Take(pageSize)
+                            .ToListAsync();
             return new ViewOrdersModel{
                 Orders = items,
                 Page= new PageViewModel(count, page, pageSize)
@@ -37,7 +41,12 @@ namespace Services
 
         public async Task<Order> GetOrderById(int id)
         {
-            return await _context.Orders.Include(x=>x.Products).ThenInclude(x=>x.Product).Include(x=>x.Promocode).FirstOrDefaultAsync(x=>x.Id==id);
+            return await _context.Orders
+                                .Include(x=>x.Products)
+                                    .ThenInclude(x=>x.Product)
+                                        .ThenInclude(x=>x.Category)
+                                .Include(x=>x.Promocode)
+                                .FirstOrDefaultAsync(x=>x.Id==id);
         }
     }
 }
